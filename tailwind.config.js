@@ -4,7 +4,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: { colors: { main: "#e74c3c" } },
+    extend: { colors: { primary: "#e74c3c" } },
     fontFamily: {
       sans: ["Roboto", "sans-serif"],
       heading: ["Staatliches", "Helvetica", "Arial", "sans-serif"],

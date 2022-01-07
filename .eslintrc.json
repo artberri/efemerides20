@@ -1,3 +1,13 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "ignorePatterns": ["/*.config.js"],
+  "rules": {
+    "newline-before-return": "error",
+    "no-console": "error",
+    "prefer-template": "error"
+  }
 }

@@ -1,15 +1,22 @@
 {
   "title": "Efemérides 2.0",
   "subtitle": "Efemérides, acontecimientos, nacimientos y defunciones",
-  "home": {
-    "title": "Efemérides 2.0 - Efemérides, acontecimientos, nacimientos, defunciones",
-    "description": "Todos los acontecimientos, nacimientos y defunciones ordenados por fecha. Consulta que sucedió hoy o el día de tu nacimiento. Descubre cuando nació o murió alguien u otras curiosidades.",
-    "keywords": "efemérides, acontecimientos, nacimientos, tal día como hoy, cuándo murió, cuándo nació, un día como hoy, que pasó hace exactamente, defunciones, históricos, eventos"
-  },
   "breadcrumps": {
     "home": "Efemérides"
   },
   "footer": {
     "projectof": "Un proyecto de <berriartLink>Berriart</berriartLink>"
+  },
+  "home": {
+    "title": "Efemérides 2.0 - Efemérides, acontecimientos, nacimientos, defunciones",
+    "breadcrump": "Efemérides",
+    "description": "Todos los acontecimientos, nacimientos y defunciones ordenados por fecha. Consulta que sucedió hoy o el día de tu nacimiento. Descubre cuando nació o murió alguien u otras curiosidades.",
+    "keywords": "efemérides, acontecimientos, nacimientos, tal día como hoy, cuándo murió, cuándo nació, un día como hoy, que pasó hace exactamente, defunciones, históricos, eventos"
+  },
+  "faq": {
+    "title": "FAQ - Preguntas frecuentes",
+    "breadcrump": "FAQ",
+    "description": "Todos los acontecimientos, nacimientos y defunciones ordenados por fecha. Consulta que sucedió hoy o el día de tu nacimiento. Descubre cuando nació o murió alguien u otras curiosidades.",
+    "keywords": "efemérides, acontecimientos, nacimientos, tal día como hoy, cuándo murió, cuándo nació, un día como hoy, que pasó hace exactamente, defunciones, históricos, eventos"
   }
 }

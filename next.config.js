@@ -1,5 +1,3 @@
-const routes = require("./routes.config");
-
 const port = process.env.PORT || 3000;
 
 /** @type {import('next').NextConfig} */
@@ -13,13 +11,5 @@ module.exports = {
     twitterAccount: process.env.TWITTER_ACCOUNT,
     twitterCreator: process.env.TWITTER_CREATOR,
     basePath: process.env.BASE_PATH || `http://localhost:${port}`,
-  },
-  exportPathMap: async function (
-    defaultPathMap,
-    { dev, dir, outDir, distDir, buildId }
-  ) {
-    return {
-      [routes.homepage.path]: { page: routes.homepage.page },
-    };
   },
 };

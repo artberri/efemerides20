@@ -1,17 +1,14 @@
-import { AnchorHTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
+import { AnchorHTMLAttributes, DetailedHTMLProps, forwardRef } from "react";
 
-export interface FooterLinkProps
-  extends DetailedHTMLProps<
-    AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  > {
-  children: ReactNode;
-}
-
-export const FooterLink = ({ children, ...props }: FooterLinkProps) => {
+export const FooterLink = forwardRef<
+  HTMLAnchorElement,
+  DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
+>(({ children, ...props }, ref) => {
   return (
-    <a className="underline" {...props}>
+    <a ref={ref} className="underline text-gray-600" {...props}>
       {children}
     </a>
   );
-};
+});
+
+FooterLink.displayName = "FooterLink";

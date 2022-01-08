@@ -10,7 +10,7 @@ import { i18n } from "../next-i18next.config";
 
 class MyDocument extends Document {
   public static override async getInitialProps(
-    ctx: DocumentContext
+    ctx: DocumentContext,
   ): Promise<DocumentInitialProps & { locale: string }> {
     const initialProps = await Document.getInitialProps(ctx);
     const locale = ctx.locale || i18n.defaultLocale;
@@ -35,7 +35,7 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;family=Staatliches&amp;display=swap"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;family=Rajdhani:wght@400&amp;display=swap"
             rel="stylesheet"
           />
         </Head>

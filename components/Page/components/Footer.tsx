@@ -1,12 +1,15 @@
-import { Trans } from "next-i18next";
+import { Trans, useTranslation } from "next-i18next";
+import Link from "next/link";
 import { Content } from "../../Content/Content";
 import { FooterLink } from "./FooterLink";
 
 export const Footer = () => {
+  const { t } = useTranslation();
+
   return (
-    <footer className="text-center text-xs pb-4">
+    <footer className="text-center pb-4">
       <Content>
-        <p className="text-gray-600 py-2">
+        <p className="text-gray-600 py-2 text-xs">
           <Trans
             i18nKey="footer.projectof"
             components={{
@@ -22,9 +25,9 @@ export const Footer = () => {
             }}
           />{" "}
           |{" "}
-          <FooterLink href="{{ path('static', {'page': 'faq'}) }}">
-            FAQ
-          </FooterLink>{" "}
+          <Link href="/faq" passHref>
+            <FooterLink>{t("faq.breadcrump")}</FooterLink>
+          </Link>{" "}
           |{" "}
           <FooterLink href="{{ path('static_new', {'page': 'terminos'}) }}">
             Términos de uso
@@ -38,7 +41,7 @@ export const Footer = () => {
             Política de cookies
           </FooterLink>
         </p>
-        <p className="text-gray-400 py-2">
+        <p className="text-gray-400 py-2 text-xs">
           Only free software was used and no kitties were harmed in the making
           of this website.
         </p>

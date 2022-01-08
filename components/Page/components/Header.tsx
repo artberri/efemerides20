@@ -1,6 +1,5 @@
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
-import routes from "../../../routes.config";
 import { Content } from "../../Content/Content";
 
 export const Header = () => {
@@ -9,12 +8,14 @@ export const Header = () => {
   return (
     <header className="bg-primary text-white text-center">
       <Content>
-        <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl pt-4 sm:pt-8 lg:pt-16">
-          <Link href={routes.homepage.path}>
-            <a title={t("subtitle")}>{t("title")}</a>
+        <h1 className="font-heading text-4xl sm:text-5xl lg:text-7xl pt-4 sm:pt-8 lg:pt-16">
+          <Link href="/">
+            <a className="text-white" title={t("subtitle")}>
+              {t("title")}
+            </a>
           </Link>
         </h1>
-        <div className="pt-2 sm:pt-4 lg:pt-8 pb-4 sm:pb-8 lg:pb-16 text-l sm:text-xl lg:text-2xl">
+        <div className="font-heading pt-2 sm:pt-4 lg:pt-8 pb-4 sm:pb-8 lg:pb-16 text-l sm:text-xl lg:text-2xl">
           {t("subtitle")}
         </div>
       </Content>

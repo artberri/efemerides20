@@ -7,7 +7,7 @@ module.exports = {
     extend: { colors: { primary: "#e74c3c" } },
     fontFamily: {
       sans: ["Roboto", "sans-serif"],
-      heading: ["Staatliches", "Helvetica", "Arial", "sans-serif"],
+      heading: ["Rajdhani", "Helvetica", "Arial", "sans-serif"],
     },
   },
   plugins: [],

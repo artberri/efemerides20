@@ -4,8 +4,8 @@ import { useAbsolutePath } from "../../hooks/useAbsolutePath";
 
 export interface HeadProps {
   title: string;
-  description: string;
-  keywords: string;
+  description?: string | undefined;
+  keywords?: string | undefined;
   canonical: string;
 }
 
@@ -22,8 +22,8 @@ export const Head = ({
     <NextHead>
       <title>{title}</title>
       <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
+      {description && <meta name="description" content={description} />}
+      {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={canonical} />
       <meta name="twitter:card" content="summary_large_image" />
       {process.env["twitterAccount"] && (

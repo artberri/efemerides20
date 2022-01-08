@@ -1,12 +1,11 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { NextPage } from "next";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Image from "next/image";
 import { Fragment } from "react";
 import { Head } from "../components/Head/Head";
 import { Page } from "../components/Page/Page";
 import { useAbsolutePath } from "../hooks/useAbsolutePath";
-import { i18n } from "../next-i18next.config";
+import { makeStaticProps } from "../utils/makeStaticProps";
 
 const myLoader = ({ src }: { src: string }) => {
   return src;
@@ -22,10 +21,10 @@ const Home: NextPage = () => {
         title={t("home.title")}
         description={t("home.description")}
         keywords={t("home.keywords")}
-        canonical={path("homepage")}
+        canonical={path("/")}
       />
 
-      <Page>
+      <Page breadcrumps={{ current: t("home.breadcrump") }}>
         <h1>
           {i18n.language} Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
@@ -83,17 +82,6 @@ const Home: NextPage = () => {
   );
 };
 
-export const getStaticProps: GetStaticProps<
-  Record<string, unknown>,
-  { locale: string }
-> = async ({ params }) => {
-  const locale = params?.["locale"] || i18n.defaultLocale;
-
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["common", "home"])),
-    },
-  };
-};
+export const getStaticProps = makeStaticProps();
 
 export default Home;

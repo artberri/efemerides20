@@ -7,6 +7,7 @@ export interface HeadProps {
   description?: string | undefined;
   keywords?: string | undefined;
   canonical: string;
+  noIndex?: boolean;
 }
 
 export const Head = ({
@@ -14,6 +15,7 @@ export const Head = ({
   description,
   keywords,
   canonical,
+  noIndex,
 }: HeadProps) => {
   const { t } = useTranslation();
   const { base } = useAbsolutePath();
@@ -24,6 +26,7 @@ export const Head = ({
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       {description && <meta name="description" content={description} />}
       {keywords && <meta name="keywords" content={keywords} />}
+      {noIndex && <meta name="robots" content="noindex, nofollow" />}
       <link rel="canonical" href={canonical} />
       <meta name="twitter:card" content="summary_large_image" />
       {process.env["twitterAccount"] && (

@@ -29,17 +29,17 @@ export const Footer = () => {
             <FooterLink>{t("faq.breadcrump")}</FooterLink>
           </Link>{" "}
           |{" "}
-          <FooterLink href="{{ path('static_new', {'page': 'terminos'}) }}">
-            Términos de uso
-          </FooterLink>{" "}
+          <Link href="/pagina/terminos" passHref>
+            <FooterLink>{t("tos.breadcrump")}</FooterLink>
+          </Link>{" "}
           |{" "}
-          <FooterLink href="{{ path('static_new', {'page': 'privacidad'}) }}">
-            Política de privacidad
-          </FooterLink>{" "}
+          <Link href="/pagina/privacidad" passHref>
+            <FooterLink>{t("privacy.breadcrump")}</FooterLink>
+          </Link>{" "}
           |{" "}
-          <FooterLink href="{{ path('static_new', {'page': 'cookies'}) }}">
-            Política de cookies
-          </FooterLink>
+          <Link href="/pagina/cookies" passHref>
+            <FooterLink>{t("cookies.breadcrump")}</FooterLink>
+          </Link>
         </p>
         <p className="text-gray-400 py-2 text-xs">
           Only free software was used and no kitties were harmed in the making

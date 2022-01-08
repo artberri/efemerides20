@@ -9,5 +9,16 @@
 
   p {
     @apply text-lg;
+    @apply pb-4;
+  }
+
+  ul {
+    @apply pl-4;
+  }
+
+  li {
+    @apply text-lg;
+    @apply pb-4;
+    @apply list-disc;
   }
 }

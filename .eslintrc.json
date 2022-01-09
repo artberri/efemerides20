@@ -8,6 +8,7 @@
   "rules": {
     "newline-before-return": "error",
     "no-console": "error",
-    "prefer-template": "error"
+    "prefer-template": "error",
+    "func-style": ["error", "expression"]
   }
 }

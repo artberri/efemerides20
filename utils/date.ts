@@ -1,4 +1,7 @@
-import { makeBy } from "fp-ts/lib/ReadonlyArray";
+import { IO } from "fp-ts/IO";
+import { pipe } from "fp-ts/lib/function";
+import { fromNullable } from "fp-ts/Option";
+import { makeBy, map } from "fp-ts/ReadonlyArray";
 
 export type MonthNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
@@ -8,7 +11,12 @@ export interface Month {
   readonly number: MonthNumber;
 }
 
-export const months: ReadonlyArray<Month> = [
+export interface Day {
+  readonly number: number;
+  readonly month: Month;
+}
+
+const months: ReadonlyArray<Month> = [
   { name: "january", days: 31, number: 1 },
   { name: "february", days: 29, number: 2 },
   { name: "march", days: 31, number: 3 },
@@ -23,20 +31,22 @@ export const months: ReadonlyArray<Month> = [
   { name: "december", days: 31, number: 12 },
 ];
 
-export const getMonth = (number: MonthNumber): Month => {
-  const monthRecord: Record<MonthNumber, Month> = months.reduce(
-    (record, month) => {
-      return {
-        ...record,
-        [month.number]: month,
-      };
-    },
-    {} as Record<MonthNumber, Month>,
-  );
-
-  return monthRecord[number];
-};
-
 const plusOne = (i: number) => i + 1;
 const generateNumberArray = (count: number) => makeBy(count, plusOne);
-export const getMonthDays = (month: Month) => generateNumberArray(month.days);
+
+export const getMonths: IO<ReadonlyArray<Month>> = () => months;
+
+export const getMonth = (number: number) =>
+  fromNullable(months.find((m) => m.number === number));
+
+export const getMonthDays = (month: Month) =>
+  pipe(
+    month.days,
+    generateNumberArray,
+    map((d): Day => ({ month, number: d })),
+  );
+
+export const getMonthDay = (month: Month, day: number) =>
+  pipe(month, getMonthDays, (days) =>
+    fromNullable(days.find((d) => d.number === day)),
+  );

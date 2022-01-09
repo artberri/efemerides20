@@ -1,15 +1,12 @@
-#!/usr/bin/env node
-
 import { pipe } from "fp-ts/function";
 import { chain as chainO, fold, isSome, Option } from "fp-ts/Option";
-import { map as mapA } from "fp-ts/ReadonlyArray";
+import { flatten, map as mapA } from "fp-ts/ReadonlyArray";
 import {
   chain as chainTE,
   left,
   map as mapTE,
   right,
   sequenceSeqArray,
-  TaskEither,
 } from "fp-ts/TaskEither";
 import {
   getMonth,
@@ -18,11 +15,14 @@ import {
   getMonths,
   Month,
 } from "../../utils/date";
-import { noop } from "../../utils/noop";
-import { crawlDay } from "./crawlDay";
+import { crawlDay, CrawlTask } from "./crawlDay";
 
-const execSequentally = (tasks: readonly TaskEither<Error, void>[]) => {
-  return pipe(tasks, sequenceSeqArray, mapTE(noop));
+const execSequentally = (tasks: readonly CrawlTask[]): CrawlTask => {
+  return pipe(
+    tasks,
+    sequenceSeqArray,
+    mapTE((a) => flatten(a)),
+  );
 };
 
 const toTaskEither =
@@ -67,9 +67,6 @@ const crawlMonthOrDay = (month: number) =>
     (day: number) => pipe(day, getValidMonthDay(month), chainTE(crawlDay)),
   );
 
-export type Crawl = (
-  m: Option<number>,
-  d: Option<number>,
-) => TaskEither<Error, void>;
+export type Crawl = (m: Option<number>, d: Option<number>) => CrawlTask;
 export const crawl: Crawl = (month, day) =>
   isSome(month) ? pipe(day, crawlMonthOrDay(month.value)) : crawlYear();

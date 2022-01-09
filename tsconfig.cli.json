@@ -18,7 +18,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "./.cli",
-    "importHelpers": false
+    "importHelpers": false,
+    "resolveJsonModule": true
   },
   "include": ["cli/*.ts"]
 }

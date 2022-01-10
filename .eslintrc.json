@@ -9,6 +9,8 @@
     "newline-before-return": "error",
     "no-console": "error",
     "prefer-template": "error",
-    "func-style": ["error", "expression"]
+    "func-style": ["error", "expression"],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"]
   }
 }

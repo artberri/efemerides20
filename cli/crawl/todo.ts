@@ -1,10 +1,17 @@
 import { t } from "i18next";
 import { Day } from "../../utils/date";
+import { logger } from "../logger";
 
-const baseUrl = "http://es.wikipedia.org";
+const baseUrl = "https://es.wikipedia.org";
 
-export const getWikipediaUrl = (day: Day) =>
-  `${baseUrl}/wiki/${day.number}_de_${t(`monthName.${day.month.name}`)}`;
+export const getWikipediaUrl = (day: Day) => {
+  const url = `${baseUrl}/wiki/${day.number}_de_${t(
+    `monthName.${day.month.name}`,
+  )}`;
+  logger.debug(`Crawl: ${url}`);
+
+  return url;
+};
 
 export const enum EfemerideType {
   Efemeride = "efemeride",

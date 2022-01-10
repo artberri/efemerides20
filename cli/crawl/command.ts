@@ -1,9 +1,9 @@
 import { Command } from "commander";
-import consola from "consola";
 import { fold } from "fp-ts/Either";
 import { pipe } from "fp-ts/function";
 import { fromNullable } from "fp-ts/Option";
-import { map as mapT } from "fp-ts/Task";
+import { map } from "fp-ts/Task";
+import { createLogger, logger } from "../logger";
 import { validateInteger } from "./commandValidation";
 import { crawl } from "./crawl";
 
@@ -16,31 +16,31 @@ export const addCrawlCommand = (program: Command) =>
     .argument("[month]", "month (1 to 12)", validateInteger)
     .argument("[day]", "day (1 to 31)", validateInteger)
     .action(
-      async (
+      (
         month: number | undefined,
         day: number | undefined,
         options: { debug?: boolean; dry?: boolean },
       ) => {
-        const dry = !!options.dry;
-        const logger = consola.create({
-          level: options.debug ? 4 : 3,
-        });
+        createLogger(!!options.debug);
 
-        if (dry) {
+        if (options.dry) {
           logger.info("Dry run");
         }
 
-        logger.debug("Running");
-
         const exec = pipe(
           crawl(fromNullable(month), fromNullable(day)),
-          mapT(
-            fold((e) => {
-              logger.error(e.message);
-              process.exit(1);
-            }, logger.info),
+          map(
+            fold(
+              (e) => {
+                logger.error(e.message);
+                process.exit(1);
+              },
+              (efemerides) =>
+                logger.info(`Crawled efemerides count: ${efemerides.length}`),
+            ),
           ),
         );
-        await exec();
+
+        exec().catch(logger.error);
       },
     );

@@ -9,7 +9,7 @@ export interface PageProps {
   breadcrumps: BreadcrumpsProps;
 }
 
-export const Page = ({ children, breadcrumps }: PageProps) => {
+export const Page = ({ children, breadcrumps }: PageProps): JSX.Element => {
   return (
     <Fragment>
       <Header />

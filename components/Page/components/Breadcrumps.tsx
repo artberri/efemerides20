@@ -7,7 +7,10 @@ export interface BreadcrumpsProps {
   previous?: [path: string, title: string][];
 }
 
-export const Breadcrumps = ({ current, previous = [] }: BreadcrumpsProps) => {
+export const Breadcrumps = ({
+  current,
+  previous = [],
+}: BreadcrumpsProps): JSX.Element => {
   return (
     <nav className="bg-gray-200">
       <Content>

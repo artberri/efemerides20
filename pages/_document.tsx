@@ -18,7 +18,7 @@ class MyDocument extends Document {
     return { ...initialProps, locale };
   }
 
-  public override render() {
+  public override render(): JSX.Element {
     const { locale } = this.props;
 
     return (

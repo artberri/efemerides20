@@ -7,7 +7,7 @@ import { Page } from "../components/Page/Page";
 import { useAbsolutePath } from "../hooks/useAbsolutePath";
 import { makeStaticProps } from "../utils/makeStaticProps";
 
-const myLoader = ({ src }: { src: string }) => {
+const myLoader = ({ src }: { src: string }): string => {
   return src;
 };
 

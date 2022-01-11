@@ -1,14 +1,14 @@
 import { Command } from "commander";
 import { fold } from "fp-ts/Either";
-import { pipe } from "fp-ts/function";
+import { flow } from "fp-ts/function";
 import { fromNullable } from "fp-ts/Option";
 import { map } from "fp-ts/Task";
 import { createLogger, logger } from "../logger";
 import { validateInteger } from "./commandValidation";
 import { crawl } from "./crawl";
 
-export const addCrawlCommand = (program: Command) =>
-  program
+export const addCrawlCommand = (program: Command): void =>
+  void program
     .command("crawl")
     .description("crawl Wikipedia")
     .option("-d, --debug", "show debug messages")
@@ -27,7 +27,7 @@ export const addCrawlCommand = (program: Command) =>
           logger.info("Dry run");
         }
 
-        const exec = pipe(
+        const exec = flow(
           crawl(fromNullable(month), fromNullable(day)),
           map(
             fold(
@@ -39,8 +39,9 @@ export const addCrawlCommand = (program: Command) =>
                 logger.info(`Crawled efemerides count: ${efemerides.length}`),
             ),
           ),
+          (invokeTask) => invokeTask(),
         );
 
-        exec().catch(logger.error);
+        exec();
       },
     );

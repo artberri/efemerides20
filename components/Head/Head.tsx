@@ -16,7 +16,7 @@ export const Head = ({
   keywords,
   canonical,
   noIndex,
-}: HeadProps) => {
+}: HeadProps): JSX.Element => {
   const { t } = useTranslation();
   const { base } = useAbsolutePath();
 

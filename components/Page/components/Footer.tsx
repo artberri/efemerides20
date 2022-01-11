@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Content } from "../../Content/Content";
 import { FooterLink } from "./FooterLink";
 
-export const Footer = () => {
+export const Footer = (): JSX.Element => {
   const { t } = useTranslation();
 
   return (

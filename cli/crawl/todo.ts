@@ -4,7 +4,7 @@ import { logger } from "../logger";
 
 const baseUrl = "https://es.wikipedia.org";
 
-export const getWikipediaUrl = (day: Day) => {
+export const getWikipediaUrl = (day: Day): string => {
   const url = `${baseUrl}/wiki/${day.number}_de_${t(
     `monthName.${day.month.name}`,
   )}`;
@@ -22,6 +22,7 @@ export const enum EfemerideType {
 export interface Efemeride {
   readonly month: number;
   readonly day: number;
+  readonly year: number;
   readonly content: string;
   readonly rawContent: string;
   readonly type: EfemerideType;

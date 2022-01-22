@@ -1,11 +1,10 @@
 import { Command } from "commander";
-import { fold } from "fp-ts/Either";
-import { flow } from "fp-ts/function";
-import { fromNullable } from "fp-ts/Option";
-import { map } from "fp-ts/Task";
-import { createLogger, logger } from "../logger";
-import { validateInteger } from "./commandValidation";
-import { crawl } from "./crawl";
+import { fork } from "fluture";
+import { MonthNumber } from "../../utils/date";
+import { createLogger, error, info } from "../logger";
+import { ensureNumberBetween } from "./commandValidation";
+import { crawler } from "./crawler";
+import { Efemerides } from "./todo";
 
 export const addCrawlCommand = (program: Command): void =>
   void program
@@ -13,35 +12,23 @@ export const addCrawlCommand = (program: Command): void =>
     .description("crawl Wikipedia")
     .option("-d, --debug", "show debug messages")
     .option("-y, --dry", "dry run")
-    .argument("[month]", "month (1 to 12)", validateInteger)
-    .argument("[day]", "day (1 to 31)", validateInteger)
+    .argument("[month]", "month (1 to 12)", ensureNumberBetween(1, 12))
+    .argument("[day]", "day (1 to 31)", ensureNumberBetween(1, 31))
     .action(
       (
-        month: number | undefined,
+        month: MonthNumber | undefined,
         day: number | undefined,
         options: { debug?: boolean; dry?: boolean },
       ) => {
         createLogger(!!options.debug);
 
         if (options.dry) {
-          logger.info("Dry run");
+          info("Dry run");
         }
+        const crawl = crawler(month, day);
 
-        const exec = flow(
-          crawl(fromNullable(month), fromNullable(day)),
-          map(
-            fold(
-              (e) => {
-                logger.error(e.message);
-                process.exit(1);
-              },
-              (efemerides) =>
-                logger.info(`Crawled efemerides count: ${efemerides.length}`),
-            ),
-          ),
-          (invokeTask) => invokeTask(),
-        );
-
-        exec();
+        fork((e: Error) => error(e.toString()))((e: Efemerides) =>
+          info(`Length: ${e.length} / First: ${JSON.stringify(e[0])}`),
+        )(crawl);
       },
     );

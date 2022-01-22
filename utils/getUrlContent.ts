@@ -1,28 +1,26 @@
-import { TaskEither, tryCatch } from "fp-ts/TaskEither";
+import { Future, FutureInstance } from "fluture";
 import https from "https";
-import { logger } from "../cli/logger";
+import { debug } from "../cli/logger";
 
-export const getUrlContent = (url: string): TaskEither<Error, string> =>
-  tryCatch(
-    () =>
-      new Promise<string>((resolve, reject) => {
-        logger.debug(`Start Crawl: ${url}`);
-        https
-          .get(url, (res) => {
-            const data: Uint8Array[] = [];
+export const getUrlContent = (url: string): FutureInstance<Error, string> =>
+  Future((reject, resolve) => {
+    debug(`Start Crawl: ${url}`);
+    const request = https
+      .get(url, (res) => {
+        const data: Uint8Array[] = [];
 
-            res.on("data", (chunk) => {
-              data.push(chunk);
-            });
+        res.on("data", (chunk) => {
+          data.push(chunk);
+        });
 
-            res.on("end", () => {
-              logger.debug(`Crawled: ${url}`);
-              resolve(Buffer.concat(data).toString());
-            });
-          })
-          .on("error", (err) => {
-            reject(err);
-          });
-      }),
-    (reason) => new Error(String(reason)),
-  );
+        res.on("end", () => {
+          debug(`Crawled: ${url}`);
+          resolve(Buffer.concat(data).toString());
+        });
+      })
+      .on("error", (err) => {
+        reject(err);
+      });
+
+    return () => request.destroy();
+  });

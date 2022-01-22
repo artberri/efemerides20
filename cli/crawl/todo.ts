@@ -1,17 +1,4 @@
-import { t } from "i18next";
-import { Day } from "../../utils/date";
-import { logger } from "../logger";
-
-const baseUrl = "https://es.wikipedia.org";
-
-export const getWikipediaUrl = (day: Day): string => {
-  const url = `${baseUrl}/wiki/${day.number}_de_${t(
-    `monthName.${day.month.name}`,
-  )}`;
-  logger.debug(`Crawl: ${url}`);
-
-  return url;
-};
+import { FutureInstance } from "fluture";
 
 export const enum EfemerideType {
   Efemeride = "efemeride",
@@ -27,3 +14,7 @@ export interface Efemeride {
   readonly rawContent: string;
   readonly type: EfemerideType;
 }
+
+export interface Efemerides extends ReadonlyArray<Efemeride> {}
+
+export type CrawlTask = FutureInstance<Error, Efemerides>;

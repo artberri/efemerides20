@@ -12,11 +12,18 @@
     "func-style": ["error", "expression"],
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      {
+        "allowSingleExtends": true
+      }
+    ],
     "@typescript-eslint/explicit-module-boundary-types": [
       "error",
       {
         "allowHigherOrderFunctions": true,
-        "allowTypedFunctionExpressions": true
+        "allowTypedFunctionExpressions": true,
+        "allowDirectConstAssertionInArrowFunctions": true
       }
     ],
     "@typescript-eslint/explicit-function-return-type": [
@@ -24,7 +31,9 @@
       {
         "allowConciseArrowFunctionExpressionsStartingWithVoid": true,
         "allowExpressions": true,
-        "allowTypedFunctionExpressions": true
+        "allowTypedFunctionExpressions": true,
+        "allowHigherOrderFunctions": true,
+        "allowDirectConstAssertionInArrowFunctions": true
       }
     ],
     "@typescript-eslint/explicit-member-accessibility": ["error"]

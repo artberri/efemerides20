@@ -9,9 +9,10 @@ import {
   MonthNumber,
 } from "../../utils/date";
 import { getValidMonthDay } from "./commandValidation";
-import { getDayFromWikipedia } from "./getDayFromWikipedia";
-import { parseDayHtml } from "./parseDayHtml";
-import { CrawlTask, Efemeride, Efemerides, EfemerideType } from "./todo";
+import { getDayHtmlFromWikipedia } from "./getDayHtmlFromWikipedia";
+import { getRawEfemeridesFromHtml } from "./getRawEfemeridesFromHtml";
+import { mapEfemeridesFromRawContent } from "./mapEfemeridesFromRawContent";
+import { CrawlTask, Efemerides } from "./todo";
 
 const merge =
   (previous: Efemerides) =>
@@ -28,22 +29,11 @@ const sequencify = (tasks: CrawlTask[]): CrawlTask => {
   }, resolve<Efemerides>([]));
 };
 
-const mapRawEfemerideContent =
-  (day: Day) =>
-  (rawContent: string): Efemeride => ({
-    month: day.month.number,
-    day: day.number,
-    year: 2022,
-    rawContent,
-    content: "ok",
-    type: EfemerideType.Efemeride,
-  });
-
 const crawlDay = (day: Day): CrawlTask =>
   pipe(
-    getDayFromWikipedia,
-    mapF(parseDayHtml),
-    mapF(map(mapRawEfemerideContent(day))),
+    getDayHtmlFromWikipedia,
+    mapF(getRawEfemeridesFromHtml),
+    mapF(mapEfemeridesFromRawContent(day)),
   )(day);
 
 const crawlMonth: (month: Month) => CrawlTask = pipe(

@@ -32,8 +32,18 @@ export class Either<L, R> {
       : fn(this.data.right);
   }
 
+  public chainLeft<T>(fn: (wrapped: L) => Either<T, R>): Either<T, R> {
+    return this.data.type === EitherType.Left
+      ? fn(this.data.left)
+      : Either.right(this.data.right);
+  }
+
   public map<T>(fn: (wrapped: R) => T): Either<L, T> {
     return this.chain((data) => Either.right(fn(data)));
+  }
+
+  public mapLeft<T>(fn: (wrapped: L) => T): Either<T, R> {
+    return this.chainLeft((data) => Either.left(fn(data)));
   }
 
   public option(fn: (wrapped: L) => R): R {
@@ -62,10 +72,20 @@ export const chain =
   (either: Either<L, R>): Either<L, T> =>
     either.chain(fn);
 
+export const chainLeft =
+  <L, R, T>(fn: (wrapped: L) => Either<T, R>) =>
+  (either: Either<L, R>): Either<T, R> =>
+    either.chainLeft(fn);
+
 export const map =
   <L, R, T>(fn: (wrapped: R) => T) =>
   (either: Either<L, R>): Either<L, T> =>
     either.map(fn);
+
+export const mapLeft =
+  <L, R, T>(fn: (wrapped: L) => T) =>
+  (either: Either<L, R>): Either<T, R> =>
+    either.mapLeft(fn);
 
 export const option =
   <R, L = Error>(fn: (wrapped: L) => R) =>

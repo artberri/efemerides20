@@ -14,5 +14,6 @@ const getWikipediaUrl = (day: Day): string => {
   return url;
 };
 
-export const getDayFromWikipedia = (day: Day): FutureInstance<Error, string> =>
-  pipe(getWikipediaUrl, getUrlContent)(day);
+export const getDayHtmlFromWikipedia = (
+  day: Day,
+): FutureInstance<Error, string> => pipe(getWikipediaUrl, getUrlContent)(day);

@@ -8,6 +8,7 @@
     "lint": "next lint",
     "serve": "serve out",
     "dev:cli": "TS_NODE_PROJECT=tsconfig.cli.json ts-node cli/index.ts",
+    "dev:debug": "TS_NODE_PROJECT=tsconfig.cli.json node -r ts-node/register --inspect-brk cli/index.ts",
     "build:cli": "tsc -p tsconfig.cli.json",
     "postinstall": "pnpm build:cli"
   },

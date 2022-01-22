@@ -1,22 +1,16 @@
 import { InvalidArgumentError } from "commander";
-import { applyTo, complement, pipe } from "ramda";
+import { applyTo, pipe } from "ramda";
 import { Day, getMonth, getMonthDay, MonthNumber } from "../../utils/date";
 import {
   chain,
   Either,
   fromPredicate,
+  mapLeft,
   option as optionE,
 } from "../../utils/either";
 import { option as optionM } from "../../utils/maybe";
+import { parseInteger } from "../../utils/number";
 import { error } from "../logger";
-
-const parseInteger = pipe(
-  (v: unknown) => parseInt(v as string, 10),
-  fromPredicate<InvalidArgumentError, number>(
-    complement(Number.isNaN),
-    () => new InvalidArgumentError("Not a number."),
-  ),
-);
 
 const validateNumberBetween = (
   min: number,
@@ -34,6 +28,7 @@ export const ensureNumberBetween = (
 ): ((v: unknown) => number) =>
   pipe(
     parseInteger,
+    mapLeft((e) => new InvalidArgumentError(e.message)),
     chain(validateNumberBetween(min, max)),
     optionE<number>((e) => {
       throw e;

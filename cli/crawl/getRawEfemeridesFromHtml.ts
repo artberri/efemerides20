@@ -1,4 +1,4 @@
-import { map, pipe, replace, split, trim } from "ramda";
+import { map, pipe, split, trim } from "ramda";
 import { EfemerideType } from "./todo";
 
 const cutFrom =
@@ -30,7 +30,7 @@ const cutUntilNextH2 = (htmlContent: string): string => {
 
 const splitByList = split("</li>");
 
-const cleanEfemeride = pipe(trim, replace("<li>", ""));
+const cleanEfemeride = pipe(cutFrom("<li>"), trim);
 
 export type RawEfemeride = { htmlContent: string; type: EfemerideType };
 

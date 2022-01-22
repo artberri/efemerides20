@@ -17,9 +17,9 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "./.cli",
+    "outDir": "../.cli",
     "importHelpers": false,
     "resolveJsonModule": true
   },
-  "include": ["cli/*.ts"]
+  "include": ["./*.ts"]
 }

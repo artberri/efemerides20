@@ -3,7 +3,7 @@ import { Day } from "../../utils/date";
 import { option } from "../../utils/either";
 import { parseInteger } from "../../utils/number";
 import { RawEfemeride } from "./getRawEfemeridesFromHtml";
-import { Efemeride } from "./todo";
+import { Efemeride, EfemerideNode } from "./todo";
 
 const defaultyear = 99999999;
 
@@ -32,6 +32,23 @@ const splitYearAndContent = (
   };
 };
 
+const findNodes = (s: string): EfemerideNode[] => {
+  const regex = new RegExp(
+    `<a\\s+href=['"](?<url>[^'"]+)['"]\\s*(?:title=['"](?<title>[^'"]+)['"])(?:[^>]+)?\\s*>(?<anchor>(?:(?!</a>).)*)</a>`,
+    "gi",
+  );
+
+  return [...s.matchAll(regex)].map(({ groups }) => {
+    const g = groups as unknown as EfemerideNode;
+
+    return {
+      url: g.url,
+      title: g.title,
+      anchor: removeHtmlTags(g.anchor),
+    };
+  });
+};
+
 const mapEfemerideFromRawContent =
   (day: Day) =>
   ({ htmlContent, type }: RawEfemeride): Efemeride => {
@@ -41,9 +58,9 @@ const mapEfemerideFromRawContent =
       month: day.month.number,
       day: day.number,
       year,
-      rawContent: removeHtmlTags(contentHtml),
-      content: contentHtml,
+      content: removeHtmlTags(contentHtml),
       type,
+      nodes: findNodes(contentHtml),
     };
   };
 

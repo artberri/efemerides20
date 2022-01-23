@@ -1,9 +1,6 @@
 {
   "title": "Efemérides 2.0",
   "subtitle": "Efemérides, acontecimientos, nacimientos y defunciones",
-  "breadcrumps": {
-    "home": "Efemérides"
-  },
   "footer": {
     "projectof": "Un proyecto de <berriartLink>Berriart</berriartLink>"
   },
@@ -29,6 +26,13 @@
         "anchor": "Efemérides clasificadas por año"
       }
     }
+  },
+  "404": {
+    "title": "Error 404 - Página no encontrada'",
+    "breadcrump": "Error 404",
+    "error": "error",
+    "notFound": "Lo sentimos, no hemos encontrado lo que estabas buscando.",
+    "cta": "Ir a la página principal"
   },
   "faq": {
     "title": "FAQ - Preguntas frecuentes",

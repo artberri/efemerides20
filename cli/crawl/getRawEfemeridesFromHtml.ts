@@ -1,5 +1,4 @@
 import { map, pipe, split, trim } from "ramda";
-import { EfemerideType } from "./todo";
 
 const cutFrom =
   (from: string, preserve = false) =>
@@ -32,10 +31,10 @@ const splitByList = split("</li>");
 
 const cleanEfemeride = pipe(cutFrom("<li>"), trim);
 
-export type RawEfemeride = { htmlContent: string; type: EfemerideType };
+export type RawEfemeride = { htmlContent: string; type: EphemerideType };
 
 const getRawEfemerideListByType = (
-  type: EfemerideType,
+  type: EphemerideType,
   cutFromFn: (htmlContent: string) => string,
 ): ((htmlContent: string) => RawEfemeride[]) =>
   pipe(
@@ -50,17 +49,11 @@ const getRawEfemerideListByType = (
   );
 
 const getRawEfemerides = getRawEfemerideListByType(
-  EfemerideType.Efemeride,
+  "efemeride",
   cutFromEfemerides,
 );
-const getRawBirths = getRawEfemerideListByType(
-  EfemerideType.Birth,
-  cutFromBirths,
-);
-const getRawDeaths = getRawEfemerideListByType(
-  EfemerideType.Death,
-  cutFromDeaths,
-);
+const getRawBirths = getRawEfemerideListByType("birth", cutFromBirths);
+const getRawDeaths = getRawEfemerideListByType("death", cutFromDeaths);
 
 export const getRawEfemeridesFromHtml = (
   htmlContent: string,

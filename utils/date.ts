@@ -15,7 +15,7 @@ export interface Day {
   readonly month: Month;
 }
 
-const months: Record<MonthNumber, Month> = {
+export const months: Record<MonthNumber, Month> = {
   1: { name: "january", days: 31, number: 1 },
   2: { name: "february", days: 29, number: 2 },
   3: { name: "march", days: 31, number: 3 },

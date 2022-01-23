@@ -1,4 +1,4 @@
-import { chain, map as mapF, resolve } from "fluture";
+import { chain, FutureInstance, map as mapF, resolve } from "fluture";
 import { cond, map, pipe, T } from "ramda";
 import {
   Day,
@@ -12,21 +12,22 @@ import { getValidMonthDay } from "./commandValidation";
 import { getDayHtmlFromWikipedia } from "./getDayHtmlFromWikipedia";
 import { getRawEfemeridesFromHtml } from "./getRawEfemeridesFromHtml";
 import { mapEfemeridesFromRawContent } from "./mapEfemeridesFromRawContent";
-import { CrawlTask, Efemerides } from "./todo";
+
+export type CrawlTask = FutureInstance<Error, Ephemerides>;
 
 const merge =
-  (previous: Efemerides) =>
+  (previous: Ephemerides) =>
   (task: CrawlTask): CrawlTask =>
-    mapF<Efemerides, Efemerides>((efes) => [...previous, ...efes])(task);
+    mapF<Ephemerides, Ephemerides>((efes) => [...previous, ...efes])(task);
 
 const sequencify = (tasks: CrawlTask[]): CrawlTask => {
   return tasks.reduce((acc, current) => {
-    return chain<Error, Efemerides, Efemerides>((efes) => {
+    return chain<Error, Ephemerides, Ephemerides>((efes) => {
       const prev = merge(efes);
 
       return prev(current);
     })(acc);
-  }, resolve<Efemerides>([]));
+  }, resolve<Ephemerides>([]));
 };
 
 const crawlDay = (day: Day): CrawlTask =>

@@ -3,7 +3,6 @@ import { Day } from "../../utils/date";
 import { option } from "../../utils/either";
 import { parseInteger } from "../../utils/number";
 import { RawEfemeride } from "./getRawEfemeridesFromHtml";
-import { Efemeride, EfemerideNode } from "./todo";
 
 const defaultyear = 99999999;
 
@@ -32,14 +31,14 @@ const splitYearAndContent = (
   };
 };
 
-const findNodes = (s: string): EfemerideNode[] => {
+const findNodes = (s: string): EphemerideNode[] => {
   const regex = new RegExp(
     `<a\\s+href=['"](?<url>[^'"]+)['"]\\s*(?:title=['"](?<title>[^'"]+)['"])(?:[^>]+)?\\s*>(?<anchor>(?:(?!</a>).)*)</a>`,
     "gi",
   );
 
   return Array.from(s.matchAll(regex)).map(({ groups }) => {
-    const g = groups as unknown as EfemerideNode;
+    const g = groups as unknown as EphemerideNode;
 
     return {
       url: g.url,
@@ -51,7 +50,7 @@ const findNodes = (s: string): EfemerideNode[] => {
 
 const mapEfemerideFromRawContent =
   (day: Day) =>
-  ({ htmlContent, type }: RawEfemeride): Efemeride => {
+  ({ htmlContent, type }: RawEfemeride): Ephemeride => {
     const { contentHtml, year } = splitYearAndContent(htmlContent);
 
     return {
@@ -66,8 +65,8 @@ const mapEfemerideFromRawContent =
 
 export const mapEfemeridesFromRawContent = (
   day: Day,
-): ((list: readonly RawEfemeride[]) => Efemeride[]) =>
+): ((list: readonly RawEfemeride[]) => Ephemeride[]) =>
   pipe(
     map(mapEfemerideFromRawContent(day)),
-    filter((f: Efemeride) => f.year !== defaultyear && f.content.length > 0),
+    filter((f: Ephemeride) => f.year !== defaultyear && f.content.length > 0),
   );

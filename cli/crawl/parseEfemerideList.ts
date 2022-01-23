@@ -31,13 +31,8 @@ const getEfemeridesHtml = pipe(cutFromEfemerides, cutUntilNextH2);
 const getBirthsHtml = pipe(cutFromBirths, cutUntilNextH2);
 const getDeathsHtml = pipe(cutFromDeaths, cutUntilNextH2);
 
-export const parseEfemerideList = (htmlContent: string): readonly string[] => {
-  // eslint-disable-next-line no-console
-  // console.log(getDeathsHtml(htmlContent));
-
-  return [
-    getEfemeridesHtml(htmlContent),
-    getBirthsHtml(htmlContent),
-    getDeathsHtml(htmlContent),
-  ];
-};
+export const parseEfemerideList = (htmlContent: string): readonly string[] => [
+  getEfemeridesHtml(htmlContent),
+  getBirthsHtml(htmlContent),
+  getDeathsHtml(htmlContent),
+];

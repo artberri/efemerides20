@@ -4,7 +4,6 @@ import { MonthNumber } from "../../utils/date";
 import { createLogger, error, info } from "../logger";
 import { ensureNumberBetween } from "./commandValidation";
 import { crawler } from "./crawler";
-import { Efemerides } from "./todo";
 
 export const addCrawlCommand = (program: Command): void =>
   void program
@@ -23,7 +22,7 @@ export const addCrawlCommand = (program: Command): void =>
 
         const crawl = crawler(month, day);
 
-        fork((e: Error) => error(e.toString()))((e: Efemerides) =>
+        fork((e: Error) => error(e.toString()))((e: Ephemerides) =>
           options.debug
             ? info(`Length: ${e.length} / First: ${JSON.stringify(e[0])}`)
             : info(JSON.stringify(e)),

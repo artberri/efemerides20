@@ -12,18 +12,18 @@ export const Breadcrumps = ({
   previous = [],
 }: BreadcrumpsProps): JSX.Element => {
   return (
-    <nav className="bg-gray-200">
+    <nav className="bg-gray-100">
       <Content>
         <p className="text-xs py-2 text-gray-600">
           {previous.map(([path, title]) => (
             <Fragment key={path}>
               <Link href={path}>
-                <a className="text-primary">{title}</a>
+                <a className="text-primary capitalize">{title}</a>
               </Link>{" "}
               &raquo;{" "}
             </Fragment>
           ))}
-          <span>{current}</span>
+          <span className="capitalize">{current}</span>
         </p>
       </Content>
     </nav>

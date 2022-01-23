@@ -14,7 +14,7 @@ export const Page = ({ children, breadcrumps }: PageProps): JSX.Element => {
     <Fragment>
       <Header />
       <Breadcrumps {...breadcrumps} />
-      <main className="py-6">
+      <main className="py-6 lg:py-8">
         <Content>{children}</Content>
       </main>
       <Footer />

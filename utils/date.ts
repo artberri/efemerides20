@@ -1,5 +1,6 @@
-import { add, find, map, pipe, times, values } from "ramda";
+import { find, map, pipe, values } from "ramda";
 import { fromNullable, Maybe } from "./maybe";
+import { generateNumberArray } from "./number";
 
 export type MonthNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
@@ -28,8 +29,6 @@ const months: Record<MonthNumber, Month> = {
   11: { name: "november", days: 30, number: 11 },
   12: { name: "december", days: 31, number: 12 },
 };
-
-const generateNumberArray = times(add(1));
 
 export const getMonths = (): ReadonlyArray<Month> => values(months);
 

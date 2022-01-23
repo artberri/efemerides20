@@ -38,7 +38,7 @@ const findNodes = (s: string): EfemerideNode[] => {
     "gi",
   );
 
-  return [...s.matchAll(regex)].map(({ groups }) => {
+  return Array.from(s.matchAll(regex)).map(({ groups }) => {
     const g = groups as unknown as EfemerideNode;
 
     return {

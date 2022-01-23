@@ -11,7 +11,24 @@
     "title": "Efemérides 2.0 - Efemérides, acontecimientos, nacimientos, defunciones",
     "breadcrump": "Efemérides",
     "description": "Todos los acontecimientos, nacimientos y defunciones ordenados por fecha. Consulta que sucedió hoy o el día de tu nacimiento. Descubre cuando nació o murió alguien u otras curiosidades.",
-    "keywords": "efemérides, acontecimientos, nacimientos, tal día como hoy, cuándo murió, cuándo nació, un día como hoy, que pasó hace exactamente, defunciones, históricos, eventos"
+    "keywords": "efemérides, acontecimientos, nacimientos, tal día como hoy, cuándo murió, cuándo nació, un día como hoy, que pasó hace exactamente, defunciones, históricos, eventos",
+    "section": {
+      "aboutUs": {
+        "title": "¿Qué es Efemerides 2.0?",
+        "description": "Es una web que recoge los acontecimientos más importantes por cada fecha del año. Pero además...",
+        "anchor": "Leer más"
+      },
+      "top": {
+        "title": "Top 100",
+        "description": "Descubre los 100 temas más repetidos en las efemérides de la Wikipedia en español.",
+        "anchor": "Top 100 efemérides"
+      },
+      "byYear": {
+        "title": "Efemérides por año",
+        "description": "Si quieres también puedes acceder a las efemérides por año. ¿Sabes que más sucedió el año que naciste?",
+        "anchor": "Efemérides clasificadas por año"
+      }
+    }
   },
   "faq": {
     "title": "FAQ - Preguntas frecuentes",
@@ -42,5 +59,21 @@
     "october": "octubre",
     "november": "noviembre",
     "december": "diciembre"
+  },
+  "month": {
+    "ephemeridesOf": "efemérides de {{month}}"
+  },
+  "tagcloud": {
+    "tag1": "efemérides",
+    "tag2": "que pasó hace exactamente",
+    "tag3": "tal día como hoy",
+    "tag4": "acontecimientos",
+    "tag5": "eventos",
+    "tag6": "históricos",
+    "tag7": "cuándo nació",
+    "tag8": "cuándo murió",
+    "tag9": "nacimientos",
+    "tag10": "defunciones",
+    "tag11": "un día como hoy"
   }
 }

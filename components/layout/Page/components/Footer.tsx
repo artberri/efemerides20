@@ -1,6 +1,6 @@
 import { Trans, useTranslation } from "next-i18next";
 import Link from "next/link";
-import { Content } from "../../Content/Content";
+import { Content } from "../../../shared/Content/Content";
 import { FooterLink } from "./FooterLink";
 
 export const Footer = (): JSX.Element => {

@@ -1,6 +1,6 @@
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
-import { Content } from "../../Content/Content";
+import { Content } from "../../../shared/Content/Content";
 
 export const Header = (): JSX.Element => {
   const { t } = useTranslation();

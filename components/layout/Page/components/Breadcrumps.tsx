@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Fragment } from "react";
-import { Content } from "../../Content/Content";
+import { Content } from "../../../shared/Content/Content";
 
 export interface BreadcrumpsProps {
   current: string;

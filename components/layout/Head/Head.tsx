@@ -1,6 +1,6 @@
 import { useTranslation } from "next-i18next";
 import NextHead from "next/head";
-import { useAbsolutePath } from "../../hooks/useAbsolutePath";
+import { useAbsolutePath } from "../../../hooks/useAbsolutePath";
 
 export interface HeadProps {
   title: string;

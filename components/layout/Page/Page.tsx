@@ -1,5 +1,5 @@
 import { Fragment, ReactNode } from "react";
-import { Content } from "../Content/Content";
+import { Content } from "../../shared/Content/Content";
 import { Breadcrumps, BreadcrumpsProps } from "./components/Breadcrumps";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";

@@ -1,10 +1,10 @@
 import { Future, FutureInstance } from "fluture";
 import https from "https";
-import { debug } from "../cli/logger";
+import { info } from "../cli/logger";
 
 export const getUrlContent = (url: string): FutureInstance<Error, string> =>
   Future((reject, resolve) => {
-    debug(`Start Crawl: ${url}`);
+    info(`Start Crawl: ${url}`);
     const request = https
       .get(url, (res) => {
         const data: Uint8Array[] = [];
@@ -14,7 +14,7 @@ export const getUrlContent = (url: string): FutureInstance<Error, string> =>
         });
 
         res.on("end", () => {
-          debug(`Crawled: ${url}`);
+          info(`Crawled: ${url}`);
           resolve(Buffer.concat(data).toString());
         });
       })

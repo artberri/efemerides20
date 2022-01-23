@@ -10,8 +10,7 @@ export const addCrawlCommand = (program: Command): void =>
   void program
     .command("crawl")
     .description("crawl Wikipedia")
-    .option("-d, --debug", "show debug messages")
-    .option("-y, --dry", "dry run")
+    .option("-d, --debug", "show debug messages instead of output")
     .argument("[month]", "month (1 to 12)", ensureNumberBetween(1, 12))
     .argument("[day]", "day (1 to 31)", ensureNumberBetween(1, 31))
     .action(
@@ -22,13 +21,12 @@ export const addCrawlCommand = (program: Command): void =>
       ) => {
         createLogger(!!options.debug);
 
-        if (options.dry) {
-          info("Dry run");
-        }
         const crawl = crawler(month, day);
 
         fork((e: Error) => error(e.toString()))((e: Efemerides) =>
-          info(`Length: ${e.length} / First: ${JSON.stringify(e[0])}`),
+          options.debug
+            ? info(`Length: ${e.length} / First: ${JSON.stringify(e[0])}`)
+            : info(JSON.stringify(e)),
         )(crawl);
       },
     );

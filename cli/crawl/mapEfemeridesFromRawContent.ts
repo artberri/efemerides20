@@ -69,5 +69,5 @@ export const mapEfemeridesFromRawContent = (
 ): ((list: readonly RawEfemeride[]) => Efemeride[]) =>
   pipe(
     map(mapEfemerideFromRawContent(day)),
-    filter((f: Efemeride) => f.year !== defaultyear),
+    filter((f: Efemeride) => f.year !== defaultyear && f.content.length > 0),
   );

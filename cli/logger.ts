@@ -1,8 +1,8 @@
-import consola from "consola";
+/* eslint-disable no-console */
 import { noop } from "../utils/noop";
 
 export interface Logger {
-  debug: (message: string) => void;
+  debug: (message: unknown) => void;
   info: (message: string) => void;
   error: (message: string) => void;
 }
@@ -14,15 +14,15 @@ const logger: Logger = {
 };
 
 export const createLogger = (debug: boolean): void => {
-  const newLogger = consola.create({
-    level: debug ? 4 : 3,
-  });
+  if (!debug) {
+    return;
+  }
 
-  logger.debug = newLogger.debug;
-  logger.info = newLogger.info;
-  logger.error = newLogger.error;
+  logger.debug = console.log;
+  logger.info = console.log;
+  logger.error = console.error;
 };
 
-export const debug = (message: string): void => logger.debug(message);
+export const debug = (message: unknown): void => logger.debug(message);
 export const info = (message: string): void => logger.info(message);
 export const error = (message: string): void => logger.error(message);

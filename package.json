@@ -18,9 +18,11 @@
   "dependencies": {
     "commander": "^8.3.0",
     "fluture": "^14.0.0",
+    "html-entities": "^2.3.2",
     "i18next": "^21.6.5",
     "next": "12.0.7",
     "next-i18next": "^10.1.0",
+    "node-jq": "^2.1.0",
     "ramda": "^0.27.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -44,5 +46,15 @@
   },
   "engines": {
     "node": ">=16.13.1 <17"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "semantic-release"
+      ]
+    }
+  },
+  "browser": {
+    "child_process": false
   }
 }

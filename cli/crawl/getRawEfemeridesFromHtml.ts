@@ -49,7 +49,7 @@ const getRawEfemerideListByType = (
   );
 
 const getRawEfemerides = getRawEfemerideListByType(
-  "efemeride",
+  "ephemeride",
   cutFromEfemerides,
 );
 const getRawBirths = getRawEfemerideListByType("birth", cutFromBirths);

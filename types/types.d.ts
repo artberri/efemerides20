@@ -4,7 +4,7 @@ interface EphemerideNode {
   anchor: string;
 }
 
-type EphemerideType = "efemeride" | "birth" | "death";
+type EphemerideType = "ephemeride" | "birth" | "death";
 
 interface Ephemeride {
   readonly month: number;

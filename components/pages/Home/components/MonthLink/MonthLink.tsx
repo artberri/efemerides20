@@ -15,7 +15,7 @@ export const MonthLink = ({ month }: MonthLinkProps): JSX.Element => {
         title={t("month.title", {
           month: t(`monthName.${month.name}`),
         })}
-        className="bg-primary text-white w-full block h-24 sm:h-32 p-4"
+        className="transition-all duration-300 bg-primary hover:bg-darker text-white hover:text-white active:text-white focus:text-white hover:text-xl w-full block h-24 sm:h-32 p-4"
       >
         {t(`monthName.${month.name}`)}
       </a>

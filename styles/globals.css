@@ -5,6 +5,9 @@
 @layer base {
   a {
     @apply text-primary;
+    @apply hover:text-darker;
+    @apply active:text-darker;
+    @apply focus:text-darker;
   }
 
   p {

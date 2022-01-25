@@ -28,7 +28,7 @@ export const MonthPagination = ({
             <Fragment key={`day-${day}`}>
               <Link href={`/${day}-de-${translatedMonth}`}>
                 <a
-                  className="inline-block text-white bg-primary w-7 text-sm py-1 mt-2"
+                  className="transition duration-300 bg-primary hover:bg-darker inline-block text-white hover:text-white active:text-white focus:text-white bg-primary hover:bg-darker w-7 text-sm py-1 mt-2"
                   title={t("day.title", {
                     day,
                     month: translatedMonth,

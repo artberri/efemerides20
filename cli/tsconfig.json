@@ -21,7 +21,7 @@
     "importHelpers": false,
     "resolveJsonModule": true
   },
-  "include": ["../*.ts", "../types/*.d.ts"],
+  "include": ["index.ts", "../types/*.d.ts"],
   "ts-node": {
     "files": true
   }

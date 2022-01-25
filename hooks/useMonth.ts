@@ -1,8 +1,9 @@
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import { find, pipe } from "ramda";
-import { getMonths, Month, months } from "../utils/date";
-import { fromNullable, option } from "../utils/maybe";
+import { pipe } from "ramda";
+import { Month, months } from "../utils/date";
+import { findMonthByTranslation } from "../utils/i18n";
+import { option } from "../utils/maybe";
 
 export const useMonth = (): Month => {
   const { t } = useTranslation();
@@ -10,9 +11,7 @@ export const useMonth = (): Month => {
   const { month } = router.query;
 
   const findMonth = pipe(
-    () => getMonths(),
-    find((m) => t(`monthName.${m.name}`) === month),
-    fromNullable,
+    () => findMonthByTranslation(t)(month as string),
     option(() => months[1]),
   );
 

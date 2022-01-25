@@ -41,6 +41,12 @@ export class Maybe<ValueType> {
   public map<R>(fn: (wrapped: ValueType) => R): Maybe<R> {
     return this.chain((data) => Maybe.just(fn(data)));
   }
+
+  public fold<R>(onNothing: () => R, onJust: (wrapped: ValueType) => R): R {
+    return this.data.type === MaybeType.Just
+      ? onJust(this.data.value)
+      : onNothing();
+  }
 }
 
 export const just = <T>(value: T): Maybe<T> => Maybe.just(value);
@@ -65,6 +71,11 @@ export const map =
   <T, R>(fn: (wrapped: T) => R) =>
   (M: Maybe<T>): Maybe<R> =>
     M.map(fn);
+
+export const fold =
+  <T, R>(onNothing: () => R, onJust: (wrapped: T) => R) =>
+  (M: Maybe<T>): R =>
+    M.fold(onNothing, onJust);
 
 export const fromNullable = <T>(value: T | null | undefined): Maybe<T> =>
   isNil(value) ? Maybe.nothing() : Maybe.just(value);

@@ -25,7 +25,8 @@ export const addCrawlCommand = (program: Command): void =>
         fork((e: Error) => error(e.toString()))((e: Ephemerides) =>
           options.debug
             ? info(`Length: ${e.length} / First: ${JSON.stringify(e[0])}`)
-            : info(JSON.stringify(e)),
+            : // eslint-disable-next-line no-console
+              console.log(JSON.stringify(e)),
         )(crawl);
       },
     );

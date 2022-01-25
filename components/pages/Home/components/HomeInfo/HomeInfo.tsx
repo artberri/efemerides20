@@ -22,7 +22,7 @@ export const HomeInfo = ({
 
       <p className="text-sm">
         <Link href={link}>
-          <a className=" underline">{anchor}</a>
+          <a className="underline">{anchor}</a>
         </Link>
       </p>
     </section>

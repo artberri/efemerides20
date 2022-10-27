@@ -10,7 +10,7 @@ export const MonthLink = ({ month }: MonthLinkProps): JSX.Element => {
 	const { t } = useTranslation()
 
 	return (
-		<Link href={`/${t(`monthName.${month.name}`)}`}>
+		<Link href={`/${t(`monthName.${month.name}`)}`} legacyBehavior>
 			<a
 				title={t("month.title", {
 					month: t(`monthName.${month.name}`),

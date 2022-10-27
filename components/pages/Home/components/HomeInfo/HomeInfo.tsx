@@ -21,7 +21,7 @@ export const HomeInfo = ({
 			<p className="text-sm">{description}</p>
 
 			<p className="text-sm">
-				<Link href={link}>
+				<Link href={link} legacyBehavior>
 					<a className="underline">{anchor}</a>
 				</Link>
 			</p>

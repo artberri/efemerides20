@@ -26,7 +26,7 @@ export const MonthPagination = ({
 
 					return (
 						<Fragment key={`day-${day}`}>
-							<Link href={`/${day}-de-${translatedMonth}`}>
+							<Link href={`/${day}-de-${translatedMonth}`} legacyBehavior>
 								<a
 									className="transition duration-300 bg-primary hover:bg-darker inline-block text-white hover:text-white active:text-white focus:text-white bg-primary hover:bg-darker w-7 text-sm py-1 mt-2"
 									title={t("day.title", {

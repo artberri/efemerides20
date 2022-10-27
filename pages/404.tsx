@@ -28,7 +28,7 @@ const Custom404 = (): JSX.Element => {
 					<h1 className="font-heading text-2xl lg:text-4xl py-8 lg:py-16">
 						{t("404.notFound")}
 					</h1>
-					<Link href="/">
+					<Link href="/" legacyBehavior>
 						<a className="inline-block text-white bg-primary text-xl px-8 py-2">
 							{t("404.cta")}
 						</a>

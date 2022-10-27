@@ -17,7 +17,7 @@ export const Breadcrumps = ({
 				<p className="text-xs py-2 text-gray-600">
 					{previous.map(([path, title]) => (
 						<Fragment key={path}>
-							<Link href={path}>
+							<Link href={path} legacyBehavior>
 								<a className="text-primary capitalize">{title}</a>
 							</Link>{" "}
 							&raquo;{" "}

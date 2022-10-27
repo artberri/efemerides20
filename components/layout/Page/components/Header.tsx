@@ -9,7 +9,7 @@ export const Header = (): JSX.Element => {
 		<header className="bg-primary text-white text-center">
 			<Content>
 				<h1 className="font-heading text-4xl sm:text-5xl lg:text-7xl pt-4 sm:pt-8 lg:pt-16">
-					<Link href="/">
+					<Link href="/" legacyBehavior>
 						<a
 							className="text-white hover:text-white active:text-white focus:text-white"
 							title={t("subtitle")}

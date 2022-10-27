@@ -25,19 +25,19 @@ export const Footer = (): JSX.Element => {
 						}}
 					/>{" "}
 					|{" "}
-					<Link href="/faq" passHref>
+					<Link href="/faq" passHref legacyBehavior>
 						<FooterLink>{t("faq.breadcrump")}</FooterLink>
 					</Link>{" "}
 					|{" "}
-					<Link href="/pagina/terminos" passHref>
+					<Link href="/pagina/terminos" passHref legacyBehavior>
 						<FooterLink>{t("tos.breadcrump")}</FooterLink>
 					</Link>{" "}
 					|{" "}
-					<Link href="/pagina/privacidad" passHref>
+					<Link href="/pagina/privacidad" passHref legacyBehavior>
 						<FooterLink>{t("privacy.breadcrump")}</FooterLink>
 					</Link>{" "}
 					|{" "}
-					<Link href="/pagina/cookies" passHref>
+					<Link href="/pagina/cookies" passHref legacyBehavior>
 						<FooterLink>{t("cookies.breadcrump")}</FooterLink>
 					</Link>
 				</p>

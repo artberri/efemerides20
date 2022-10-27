@@ -21,14 +21,12 @@ export const Privacy = (): JSX.Element => {
 
 			<p>
 				Esta política (junto con nuestros{" "}
-				<Link href="/pagina/terminos">
-					<a>términos y condiciones</a>
-				</Link>{" "}
-				y cualquier otro documento al que se refiere en los mismos) establece
-				cómo procesamos los datos personales que obtenemos de usted, o que usted
-				nos proporciona. Por favor lea lo siguiente para entender nuestros
-				puntos de vista y nuestras prácticas con respecto a sus datos personales
-				y cómo los trataremos. Cuando visite efemerides20.com está aceptando y
+				<Link href="/pagina/terminos">términos y condiciones</Link> y cualquier
+				otro documento al que se refiere en los mismos) establece cómo
+				procesamos los datos personales que obtenemos de usted, o que usted nos
+				proporciona. Por favor lea lo siguiente para entender nuestros puntos de
+				vista y nuestras prácticas con respecto a sus datos personales y cómo
+				los trataremos. Cuando visite efemerides20.com está aceptando y
 				consintiendo las prácticas descritas en esta política, a los efectos de
 				la Ley de Protección de Datos de Carácter Personal 15/1999.
 			</p>
@@ -107,10 +105,7 @@ export const Privacy = (): JSX.Element => {
 				experiencia al navegar por nuestra página web y también nos permite
 				mejorar nuestra página. Para obtener información detallada sobre las
 				cookies que utilizamos y los fines para los que los usamos vea nuestra
-				<Link href="/pagina/cookies">
-					<a>Política de cookies</a>
-				</Link>
-				.
+				<Link href="/pagina/cookies">Política de cookies</Link>.
 			</p>
 
 			<SectionTitle>¿CÓMO USAMOS SU INFORMACIÓN?</SectionTitle>

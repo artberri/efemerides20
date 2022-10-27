@@ -43,20 +43,16 @@ export const Terms = (): JSX.Element => {
 			</p>
 			<ul>
 				<li>
-					<Link href="/pagina/privacidad">
-						<a>Nuestra Política de Privacidad</a>
-					</Link>
-					, que establece los términos en los que procesamos cualquier dato
+					<Link href="/pagina/privacidad">Nuestra Política de Privacidad</Link>,
+					que establece los términos en los que procesamos cualquier dato
 					personal que recopilamos o que usted nos proporcione. Al utilizar
 					nuestro sitio, da su consentimiento a dicho procesamiento de datos y
 					garantiza que toda la información proporcionada por usted es correcta
 					y exacta.
 				</li>
 				<li>
-					<Link href="/pagina/cookies">
-						<a>Nuestra Política de Cookies</a>
-					</Link>
-					, que establece información sobre las cookies en nuestro sitio.
+					<Link href="/pagina/cookies">Nuestra Política de Cookies</Link>, que
+					establece información sobre las cookies en nuestro sitio.
 				</li>
 			</ul>
 

@@ -5,7 +5,7 @@ export const SectionTitle = forwardRef<
 	DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>
 >(({ children, ...props }, ref) => {
 	return (
-		<p ref={ref} className="text-primary pb-4" {...props}>
+		<p ref={ref} className="pb-4 text-primary" {...props}>
 			{children}
 		</p>
 	)

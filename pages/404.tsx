@@ -20,16 +20,16 @@ const Custom404 = (): JSX.Element => {
 					previous: [["/", t("home.breadcrump")]],
 				}}
 			>
-				<div className="text-center pb-16">
+				<div className="pb-16 text-center">
 					<div className="font-heading text-4xl lg:text-6xl">
 						{t("404.error")}
 					</div>
 					<div className="font-heading text-7xl lg:text-9xl">404</div>
-					<h1 className="font-heading text-2xl lg:text-4xl py-8 lg:py-16">
+					<h1 className="py-8 font-heading text-2xl lg:py-16 lg:text-4xl">
 						{t("404.notFound")}
 					</h1>
 					<Link href="/" legacyBehavior>
-						<a className="inline-block text-white bg-primary text-xl px-8 py-2">
+						<a className="inline-block bg-primary px-8 py-2 text-xl text-white">
 							{t("404.cta")}
 						</a>
 					</Link>

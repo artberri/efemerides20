@@ -7,7 +7,7 @@ export const Title = forwardRef<
 	return (
 		<h1
 			ref={ref}
-			className="font-heading text-3xl sm:text-4xl lg:text-5xl pb-4"
+			className="pb-4 font-heading text-3xl sm:text-4xl lg:text-5xl"
 			{...props}
 		>
 			{children}

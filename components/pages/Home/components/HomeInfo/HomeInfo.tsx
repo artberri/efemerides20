@@ -17,7 +17,7 @@ export const HomeInfo = ({
 }: HomeInfoProps): JSX.Element => {
 	return (
 		<section className={className}>
-			<h1 className="font-heading text-2xl pb-3">{title}</h1>
+			<h1 className="pb-3 font-heading text-2xl">{title}</h1>
 			<p className="text-sm">{description}</p>
 
 			<p className="text-sm">

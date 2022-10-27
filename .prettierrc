@@ -3,5 +3,6 @@
 	"editorconfig": true,
 	"semi": false,
 	"quoteProps": "consistent",
-	"bracketSpacing": true
+	"bracketSpacing": true,
+	"plugins": ["prettier-plugin-tailwindcss"]
 }

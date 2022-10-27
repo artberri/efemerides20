@@ -5,5 +5,5 @@ export interface ContentProps {
 }
 
 export const Content = ({ children }: ContentProps): JSX.Element => {
-	return <div className="max-w-6xl mx-auto px-4">{children}</div>
+	return <div className="mx-auto max-w-6xl px-4">{children}</div>
 }

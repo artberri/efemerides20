@@ -7,7 +7,7 @@ export const Footer = (): JSX.Element => {
 	const { t } = useTranslation()
 
 	return (
-		<footer className="text-center pb-4">
+		<footer className="pb-4 text-center">
 			<Content>
 				<p className="text-gray-600 py-2 text-xs">
 					<Trans
@@ -15,7 +15,7 @@ export const Footer = (): JSX.Element => {
 						components={{
 							berriartLink: (
 								<FooterLink
-									href="https://www.berriart.com/"
+									href="https://www.albertovarela.net/"
 									target="_blank"
 									rel="noopener noreferrer"
 								>

@@ -13,7 +13,7 @@ export const EphemerideList = ({
 }: EphemerideListProps): JSX.Element => {
 	return (
 		<div className={`pt-6 ${className}`}>
-			<h2 className="font-heading text-primary text-3xl pb-4">{title}</h2>
+			<h2 className="pb-4 font-heading text-3xl text-primary">{title}</h2>
 			{ephemerides.map((ephemeride) => (
 				<Ephemeride key={ephemeride.content} ephemeride={ephemeride} />
 			))}

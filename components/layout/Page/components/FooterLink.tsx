@@ -5,7 +5,7 @@ export const FooterLink = forwardRef<
 	DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
 >(({ children, ...props }, ref) => {
 	return (
-		<a ref={ref} className="underline text-gray-600" {...props}>
+		<a ref={ref} className="text-gray-600 underline" {...props}>
 			{children}
 		</a>
 	)

@@ -16,7 +16,7 @@ export const MonthPagination = ({
 
 	return (
 		<div
-			className={`text-center bg-gray-100 p-4 lg:p-6 text-gray-800 ${className}`}
+			className={`bg-gray-100 text-gray-800 p-4 text-center lg:p-6 ${className}`}
 		>
 			<p className="pb-2">{t("month.chooseDay")}</p>
 
@@ -28,7 +28,7 @@ export const MonthPagination = ({
 						<Fragment key={`day-${day}`}>
 							<Link href={`/${day}-de-${translatedMonth}`} legacyBehavior>
 								<a
-									className="transition duration-300 bg-primary hover:bg-darker inline-block text-white hover:text-white active:text-white focus:text-white bg-primary hover:bg-darker w-7 text-sm py-1 mt-2"
+									className="mt-2 inline-block w-7 bg-primary bg-primary py-1 text-sm text-white transition duration-300 hover:bg-darker hover:bg-darker hover:text-white focus:text-white active:text-white"
 									title={t("day.title", {
 										day,
 										month: translatedMonth,

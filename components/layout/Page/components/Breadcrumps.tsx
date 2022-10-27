@@ -14,11 +14,11 @@ export const Breadcrumps = ({
 	return (
 		<nav className="bg-gray-100">
 			<Content>
-				<p className="text-xs py-2 text-gray-600">
+				<p className="text-gray-600 py-2 text-xs">
 					{previous.map(([path, title]) => (
 						<Fragment key={path}>
 							<Link href={path} legacyBehavior>
-								<a className="text-primary capitalize">{title}</a>
+								<a className="capitalize text-primary">{title}</a>
 							</Link>{" "}
 							&raquo;{" "}
 						</Fragment>

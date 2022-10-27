@@ -29,12 +29,8 @@ export const Head = ({
 			{noIndex && <meta name="robots" content="noindex, nofollow" />}
 			<link rel="canonical" href={canonical} />
 			<meta name="twitter:card" content="summary_large_image" />
-			{process.env["twitterAccount"] && (
-				<meta name="twitter:site" content={process.env["twitterAccount"]} />
-			)}
-			{process.env["twitterCreator"] && (
-				<meta name="twitter:creator" content={process.env["twitterCreator"]} />
-			)}
+			<meta name="twitter:site" content="@efemerides20" />
+			<meta name="twitter:creator" content="@artberri" />
 			<meta property="og:locale" content="es_ES" />
 			<meta property="og:title" content={title} />
 			<meta property="og:type" content="website" />

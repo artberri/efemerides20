@@ -1,12 +1,15 @@
-import { TFunction } from "i18next";
-import { find, pipe } from "ramda";
-import { getMonths, Month } from "./date";
-import { fromNullable, Maybe } from "./maybe";
+import { getMonths, Month } from "./date"
 
-export const findMonthByTranslation =
-  (t: TFunction) =>
-  (translatedMonth: string): Maybe<Month> =>
-    pipe(
-      find((m: Month) => t(`monthName.${m.name}`) === translatedMonth),
-      fromNullable,
-    )(getMonths());
+export const findMonthByTranslationOrThrow = (
+	t: (key: string) => string,
+	translatedMonth: string,
+): Month => {
+	const month = getMonths().find(
+		(m: Month) => t(`monthName.${m.name}`) === translatedMonth,
+	)
+	if (!month) {
+		throw new Error(`The month ${translatedMonth} does not exist`)
+	}
+
+	return month
+}

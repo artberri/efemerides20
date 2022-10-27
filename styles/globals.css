@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 @layer base {
-  a {
-    @apply text-primary;
-    @apply hover:text-darker;
-    @apply active:text-darker;
-    @apply focus:text-darker;
-  }
+	a {
+		@apply text-primary;
+		@apply hover:text-darker;
+		@apply active:text-darker;
+		@apply focus:text-darker;
+	}
 
-  p {
-    @apply text-lg;
-    @apply pb-4;
-  }
+	p {
+		@apply text-lg;
+		@apply pb-4;
+	}
 
-  ul {
-    @apply pl-4;
-  }
+	ul {
+		@apply pl-4;
+	}
 
-  li {
-    @apply text-lg;
-    @apply pb-4;
-    @apply list-disc;
-  }
+	li {
+		@apply text-lg;
+		@apply pb-4;
+		@apply list-disc;
+	}
 }

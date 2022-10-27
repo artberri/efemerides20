@@ -1,101 +1,101 @@
 {
-  "title": "Efemérides 2.0",
-  "subtitle": "Efemérides, acontecimientos, nacimientos y defunciones",
-  "footer": {
-    "projectof": "Un proyecto de <berriartLink>Berriart</berriartLink>"
-  },
-  "action": {
-    "borns": "nace",
-    "deads": "muere"
-  },
-  "home": {
-    "title": "Efemérides 2.0 - Efemérides, acontecimientos, nacimientos, defunciones",
-    "breadcrump": "Efemérides",
-    "description": "Todos los acontecimientos, nacimientos y defunciones ordenados por fecha. Consulta que sucedió hoy o el día de tu nacimiento. Descubre cuando nació o murió alguien u otras curiosidades.",
-    "keywords": "efemérides, acontecimientos, nacimientos, tal día como hoy, cuándo murió, cuándo nació, un día como hoy, que pasó hace exactamente, defunciones, históricos, eventos",
-    "section": {
-      "aboutUs": {
-        "title": "¿Qué es Efemerides 2.0?",
-        "description": "Es una web que recoge los acontecimientos más importantes por cada fecha del año. Pero además...",
-        "anchor": "Leer más"
-      },
-      "top": {
-        "title": "Top 100",
-        "description": "Descubre los 100 temas más repetidos en las efemérides de la Wikipedia en español.",
-        "anchor": "Top 100 efemérides"
-      },
-      "byYear": {
-        "title": "Efemérides por año",
-        "description": "Si quieres también puedes acceder a las efemérides por año. ¿Sabes que más sucedió el año que naciste?",
-        "anchor": "Efemérides clasificadas por año"
-      }
-    }
-  },
-  "404": {
-    "title": "Error 404 - Página no encontrada'",
-    "breadcrump": "Error 404",
-    "error": "error",
-    "notFound": "Lo sentimos, no hemos encontrado lo que estabas buscando.",
-    "cta": "Ir a la página principal"
-  },
-  "faq": {
-    "title": "FAQ - Preguntas frecuentes",
-    "breadcrump": "FAQ"
-  },
-  "tos": {
-    "title": "Términos de uso y condiciones generales",
-    "breadcrump": "Términos de uso"
-  },
-  "privacy": {
-    "title": "Política de privacidad",
-    "breadcrump": "Política de privacidad"
-  },
-  "cookies": {
-    "title": "Política de cookies",
-    "breadcrump": "Política de cookies"
-  },
-  "monthName": {
-    "january": "enero",
-    "february": "febrero",
-    "march": "marzo",
-    "april": "abril",
-    "may": "mayo",
-    "june": "junio",
-    "july": "julio",
-    "august": "agosto",
-    "september": "septiembre",
-    "october": "octubre",
-    "november": "noviembre",
-    "december": "diciembre"
-  },
-  "month": {
-    "title": "Efemérides de {{month}}",
-    "seoTitle": "Efemérides, acontecimientos, nacimientos y defunciones de {{month}}",
-    "breadcrump": "{{month}}",
-    "description": "Todos los acontecimientos, nacimientos y defunciones ocurridos en {{month}} de cualquier año. Descubre que sucedió este mes, quienes nacieron o murieron y otras curiosidades.",
-    "keywords": "{{month}}, efemérides, acontecimientos, nacimientos",
-    "chooseDay": "Elige un día concreto para poder ver más efemérides:",
-    "subtitle": {
-      "events": "Algunos acontecimientos de {{month}}",
-      "births": "Algunos nacimientos de {{month}}",
-      "deaths": "Algunas defunciones de {{month}}"
-    },
-    "date": "El {{day}} de <emphatize>{{month}}</emphatize> de {{year}}"
-  },
-  "day": {
-    "title": "Efemérides del día {{day}} de {{month}}"
-  },
-  "tagcloud": {
-    "tag1": "efemérides",
-    "tag2": "que pasó hace exactamente",
-    "tag3": "tal día como hoy",
-    "tag4": "acontecimientos",
-    "tag5": "eventos",
-    "tag6": "históricos",
-    "tag7": "cuándo nació",
-    "tag8": "cuándo murió",
-    "tag9": "nacimientos",
-    "tag10": "defunciones",
-    "tag11": "un día como hoy"
-  }
+	"title": "Efemérides 2.0",
+	"subtitle": "Efemérides, acontecimientos, nacimientos y defunciones",
+	"footer": {
+		"projectof": "Un proyecto de <berriartLink>Berriart</berriartLink>"
+	},
+	"action": {
+		"borns": "nace",
+		"deads": "muere"
+	},
+	"home": {
+		"title": "Efemérides 2.0 - Efemérides, acontecimientos, nacimientos, defunciones",
+		"breadcrump": "Efemérides",
+		"description": "Todos los acontecimientos, nacimientos y defunciones ordenados por fecha. Consulta que sucedió hoy o el día de tu nacimiento. Descubre cuando nació o murió alguien u otras curiosidades.",
+		"keywords": "efemérides, acontecimientos, nacimientos, tal día como hoy, cuándo murió, cuándo nació, un día como hoy, que pasó hace exactamente, defunciones, históricos, eventos",
+		"section": {
+			"aboutUs": {
+				"title": "¿Qué es Efemerides 2.0?",
+				"description": "Es una web que recoge los acontecimientos más importantes por cada fecha del año. Pero además...",
+				"anchor": "Leer más"
+			},
+			"top": {
+				"title": "Top 100",
+				"description": "Descubre los 100 temas más repetidos en las efemérides de la Wikipedia en español.",
+				"anchor": "Top 100 efemérides"
+			},
+			"byYear": {
+				"title": "Efemérides por año",
+				"description": "Si quieres también puedes acceder a las efemérides por año. ¿Sabes que más sucedió el año que naciste?",
+				"anchor": "Efemérides clasificadas por año"
+			}
+		}
+	},
+	"404": {
+		"title": "Error 404 - Página no encontrada'",
+		"breadcrump": "Error 404",
+		"error": "error",
+		"notFound": "Lo sentimos, no hemos encontrado lo que estabas buscando.",
+		"cta": "Ir a la página principal"
+	},
+	"faq": {
+		"title": "FAQ - Preguntas frecuentes",
+		"breadcrump": "FAQ"
+	},
+	"tos": {
+		"title": "Términos de uso y condiciones generales",
+		"breadcrump": "Términos de uso"
+	},
+	"privacy": {
+		"title": "Política de privacidad",
+		"breadcrump": "Política de privacidad"
+	},
+	"cookies": {
+		"title": "Política de cookies",
+		"breadcrump": "Política de cookies"
+	},
+	"monthName": {
+		"january": "enero",
+		"february": "febrero",
+		"march": "marzo",
+		"april": "abril",
+		"may": "mayo",
+		"june": "junio",
+		"july": "julio",
+		"august": "agosto",
+		"september": "septiembre",
+		"october": "octubre",
+		"november": "noviembre",
+		"december": "diciembre"
+	},
+	"month": {
+		"title": "Efemérides de {{month}}",
+		"seoTitle": "Efemérides, acontecimientos, nacimientos y defunciones de {{month}}",
+		"breadcrump": "{{month}}",
+		"description": "Todos los acontecimientos, nacimientos y defunciones ocurridos en {{month}} de cualquier año. Descubre que sucedió este mes, quienes nacieron o murieron y otras curiosidades.",
+		"keywords": "{{month}}, efemérides, acontecimientos, nacimientos",
+		"chooseDay": "Elige un día concreto para poder ver más efemérides:",
+		"subtitle": {
+			"events": "Algunos acontecimientos de {{month}}",
+			"births": "Algunos nacimientos de {{month}}",
+			"deaths": "Algunas defunciones de {{month}}"
+		},
+		"date": "El {{day}} de <emphatize>{{month}}</emphatize> de {{year}}"
+	},
+	"day": {
+		"title": "Efemérides del día {{day}} de {{month}}"
+	},
+	"tagcloud": {
+		"tag1": "efemérides",
+		"tag2": "que pasó hace exactamente",
+		"tag3": "tal día como hoy",
+		"tag4": "acontecimientos",
+		"tag5": "eventos",
+		"tag6": "históricos",
+		"tag7": "cuándo nació",
+		"tag8": "cuándo murió",
+		"tag9": "nacimientos",
+		"tag10": "defunciones",
+		"tag11": "un día como hoy"
+	}
 }

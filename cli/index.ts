@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { addCrawlCommand } from "./crawl/command";
-import { program } from "./program";
+import { addCrawlCommand } from "./crawl/command"
+import { program } from "./program"
 
-addCrawlCommand(program);
+addCrawlCommand(program)
 
-program.parse(process.argv);
+program.parse(process.argv)

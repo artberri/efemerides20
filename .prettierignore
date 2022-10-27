@@ -1,0 +1,6 @@
+.cli/
+.next/
+.vscode/
+node_modules/
+out/
+pnpm-lock.yaml

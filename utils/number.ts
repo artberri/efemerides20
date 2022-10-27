@@ -1,12 +1,11 @@
-import { add, complement, pipe, times } from "ramda";
-import { fromPredicate } from "./either";
+export const generateNumberArray = (n: number): ReadonlyArray<number> =>
+	Array.from({ length: n }, (_, i) => i + 1)
 
-export const generateNumberArray = times(add(1));
+export const parseIntegerOrThrow = (v: unknown): number => {
+	const int = parseInt(v as string, 10)
+	if (Number.isNaN(int)) {
+		throw new Error("Not a number.")
+	}
 
-export const parseInteger = pipe(
-  (v: unknown) => parseInt(v as string, 10),
-  fromPredicate<Error, number>(
-    complement(Number.isNaN),
-    () => new Error("Not a number."),
-  ),
-);
+	return int
+}

@@ -1,59 +1,52 @@
-import { chain, FutureInstance, map as mapF, resolve } from "fluture";
-import { cond, map, pipe, T } from "ramda";
 import {
-  Day,
-  getMonth,
-  getMonthDays,
-  getMonths,
-  Month,
-  MonthNumber,
-} from "../../utils/date";
-import { getValidMonthDay } from "./commandValidation";
-import { getDayHtmlFromWikipedia } from "./getDayHtmlFromWikipedia";
-import { getRawEfemeridesFromHtml } from "./getRawEfemeridesFromHtml";
-import { mapEfemeridesFromRawContent } from "./mapEfemeridesFromRawContent";
+	Day,
+	getMonth,
+	getMonthDays,
+	getMonths,
+	Month,
+	MonthNumber,
+} from "../../utils/date"
+import { getValidMonthDay } from "./commandValidation"
+import { getDayHtmlFromWikipedia } from "./getDayHtmlFromWikipedia"
+import { getRawEfemeridesFromHtml } from "./getRawEfemeridesFromHtml"
+import { mapEfemeridesFromRawContent } from "./mapEfemeridesFromRawContent"
 
-export type CrawlTask = FutureInstance<Error, Ephemerides>;
+export type CrawlTask = () => Promise<Ephemerides>
 
-const merge =
-  (previous: Ephemerides) =>
-  (task: CrawlTask): CrawlTask =>
-    mapF<Ephemerides, Ephemerides>((efes) => [...previous, ...efes])(task);
+const mapSeries = async <T>(
+	iterable: ReadonlyArray<() => Promise<ReadonlyArray<T>>>,
+): Promise<ReadonlyArray<T>> => {
+	const results: T[] = []
 
-const sequencify = (tasks: CrawlTask[]): CrawlTask => {
-  return tasks.reduce((acc, current) => {
-    return chain<Error, Ephemerides, Ephemerides>((efes) => {
-      const prev = merge(efes);
+	for (const fn of iterable) {
+		results.push(...(await fn()))
+	}
 
-      return prev(current);
-    })(acc);
-  }, resolve<Ephemerides>([]));
-};
+	return results
+}
 
-const crawlDay = (day: Day): CrawlTask =>
-  pipe(
-    getDayHtmlFromWikipedia,
-    mapF(getRawEfemeridesFromHtml),
-    mapF(mapEfemeridesFromRawContent(day)),
-  )(day);
+const crawlDay =
+	(day: Day): CrawlTask =>
+	() =>
+		getDayHtmlFromWikipedia(day)
+			.then(getRawEfemeridesFromHtml)
+			.then(mapEfemeridesFromRawContent(day))
 
-const crawlMonth: (month: Month) => CrawlTask = pipe(
-  getMonthDays,
-  map(crawlDay),
-  sequencify,
-);
+const crawlMonth =
+	(month: Month): CrawlTask =>
+	() =>
+		mapSeries(getMonthDays(month).map(crawlDay))
 
-const crawlYear: () => CrawlTask = pipe(getMonths, map(crawlMonth), sequencify);
+const crawlYear: CrawlTask = () => mapSeries(getMonths().map(crawlMonth))
 
-export const crawler = cond<
-  [MonthNumber | undefined, number | undefined],
-  CrawlTask
->([
-  [
-    (month, day) => !!month && !!day,
-    (month, day) =>
-      crawlDay(getValidMonthDay(month as MonthNumber, day as number)),
-  ],
-  [(month) => !!month, (month) => crawlMonth(getMonth(month as MonthNumber))],
-  [T, crawlYear],
-]);
+export const crawler = (month?: MonthNumber, day?: number): CrawlTask => {
+	if (!!month && !!day) {
+		return crawlDay(getValidMonthDay(month as MonthNumber, day as number))
+	}
+
+	if (!!month) {
+		return crawlMonth(getMonth(month as MonthNumber))
+	}
+
+	return crawlYear
+}

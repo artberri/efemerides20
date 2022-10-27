@@ -1,60 +1,58 @@
 {
-  "name": "efemerides20",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start",
-    "lint": "next lint",
-    "serve": "serve out",
-    "dev:cli": "TS_NODE_PROJECT=cli/tsconfig.json ts-node cli/index.ts",
-    "dev:debug": "TS_NODE_PROJECT=cli/tsconfig.json node -r ts-node/register --inspect-brk cli/index.ts",
-    "build:cli": "tsc -p cli/tsconfig.json",
-    "postinstall": "pnpm build:cli"
-  },
-  "bin": {
-    "efe20": "./.cli/cli/index.js"
-  },
-  "dependencies": {
-    "commander": "^8.3.0",
-    "fluture": "^14.0.0",
-    "html-entities": "^2.3.2",
-    "i18next": "^21.6.5",
-    "next": "12.0.7",
-    "next-i18next": "^10.1.0",
-    "node-jq": "^2.1.0",
-    "ramda": "^0.27.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
-  },
-  "devDependencies": {
-    "@babel/core": ">=7.0.0 <8.0.0",
-    "@types/node": "17.0.8",
-    "@types/ramda": "^0.27.64",
-    "@types/react": "17.0.38",
-    "@typescript-eslint/eslint-plugin": "^5.9.0",
-    "@typescript-eslint/parser": "^5.9.0",
-    "autoprefixer": "^10.4.1",
-    "eslint": "8.6.0",
-    "eslint-config-next": "12.0.7",
-    "eslint-config-prettier": "^8.3.0",
-    "postcss": "^8.4.5",
-    "serve": "^13.0.2",
-    "tailwindcss": "^3.0.11",
-    "ts-node": "^10.4.0",
-    "typescript": "4.5.4"
-  },
-  "engines": {
-    "node": ">=16.13.1 <17"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "semantic-release"
-      ]
-    }
-  },
-  "browser": {
-    "child_process": false
-  }
+	"name": "efemerides20",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build && next export",
+		"start": "next start",
+		"lint": "next lint",
+		"serve": "serve out",
+		"dev:cli": "TS_NODE_PROJECT=cli/tsconfig.json ts-node cli/index.ts",
+		"dev:debug": "TS_NODE_PROJECT=cli/tsconfig.json node -r ts-node/register --inspect-brk cli/index.ts",
+		"build:cli": "tsc -p cli/tsconfig.json",
+		"postinstall": "pnpm build:cli"
+	},
+	"bin": {
+		"efe20": "./.cli/cli/index.js"
+	},
+	"dependencies": {
+		"commander": "^9.4.1",
+		"html-entities": "^2.3.3",
+		"i18next": "^21.6.5",
+		"next": "12.0.7",
+		"next-i18next": "^10.1.0",
+		"node-jq": "^2.3.4",
+		"react": "17.0.2",
+		"react-dom": "17.0.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.16.7",
+		"@types/node": "18.11.7",
+		"@types/react": "17.0.38",
+		"@typescript-eslint/eslint-plugin": "^5.41.0",
+		"@typescript-eslint/parser": "^5.41.0",
+		"autoprefixer": "^10.4.1",
+		"eslint": "8.26.0",
+		"eslint-config-next": "13.0.0",
+		"eslint-config-prettier": "^8.5.0",
+		"postcss": "^8.4.18",
+		"prettier": "2.7.1",
+		"serve": "^14.0.1",
+		"tailwindcss": "^3.2.1",
+		"ts-node": "^10.9.1",
+		"typescript": "^4.8.4"
+	},
+	"engines": {
+		"node": ">=18.12.0 <19"
+	},
+	"pnpm": {
+		"peerDependencyRules": {
+			"ignoreMissing": [
+				"semantic-release"
+			]
+		}
+	},
+	"browser": {
+		"child_process": false
+	}
 }

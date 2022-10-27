@@ -1,19 +1,19 @@
-import { FutureInstance } from "fluture";
-import { t } from "i18next";
-import { pipe } from "ramda";
-import { Day } from "../../utils/date";
-import { getUrlContent } from "../../utils/getUrlContent";
+import { t } from "i18next"
+import { Day } from "../../utils/date"
+import { getUrlContent } from "./getUrlContent"
 
-const baseUrl = "https://es.wikipedia.org";
+const baseUrl = "https://es.wikipedia.org"
 
 const getWikipediaUrl = (day: Day): string => {
-  const url = `${baseUrl}/wiki/${day.number}_de_${t(
-    `monthName.${day.month.name}`,
-  )}`;
+	const url = `${baseUrl}/wiki/${day.number}_de_${t(
+		`monthName.${day.month.name}`,
+	)}`
 
-  return url;
-};
+	return url
+}
 
-export const getDayHtmlFromWikipedia = (
-  day: Day,
-): FutureInstance<Error, string> => pipe(getWikipediaUrl, getUrlContent)(day);
+export const getDayHtmlFromWikipedia = (day: Day): Promise<string> => {
+	const url = getWikipediaUrl(day)
+
+	return getUrlContent(url)
+}

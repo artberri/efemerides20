@@ -1,6 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@fontsource/rajdhani': ^4.5.10
+  '@fontsource/roboto': ^4.5.8
   '@types/node': 18.11.7
   '@types/react': 18.0.23
   '@typescript-eslint/eslint-plugin': ^5.41.0
@@ -25,6 +27,8 @@ specifiers:
   typescript: ^4.8.4
 
 dependencies:
+  '@fontsource/rajdhani': 4.5.10
+  '@fontsource/roboto': 4.5.8
   commander: 9.4.1
   html-entities: 2.3.3
   i18next: 22.0.3
@@ -89,6 +93,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@fontsource/rajdhani/4.5.10:
+    resolution: {integrity: sha512-4qsQsC4BELF8FC6UEBs5QBkek4v+/t0PYmQYtw1WDlNlq0V5mjUldMxjXzZano9/5HBihL7ztfQRPOf8WYexIQ==}
+    dev: false
+
+  /@fontsource/roboto/4.5.8:
+    resolution: {integrity: sha512-CnD7zLItIzt86q4Sj3kZUiLcBk1dSk81qcqgMGaZe7SQ1P8hFNxhMl5AZthK1zrDM5m74VVhaOpuMGIL4gagaA==}
+    dev: false
 
   /@hapi/hoek/9.2.1:
     resolution: {integrity: sha512-gfta+H8aziZsm8pZa0vj04KO6biEiisppNgA1kbJvFrrWu9Vm7eaUEy76DIxsuTaWvti5fkJVhllWc6ZTE+Mdw==}

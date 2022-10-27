@@ -29,7 +29,7 @@ export const Footer = (): JSX.Element => {
 						<FooterLink>{t("faq.breadcrump")}</FooterLink>
 					</Link>{" "}
 					|{" "}
-					<Link href="/pagina/terminos" passHref legacyBehavior>
+					<Link href="/pagina/aviso-legal" passHref legacyBehavior>
 						<FooterLink>{t("tos.breadcrump")}</FooterLink>
 					</Link>{" "}
 					|{" "}

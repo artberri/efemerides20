@@ -15,7 +15,7 @@ const TermsPage: NextPage = () => {
 		<Fragment>
 			<Head
 				title={`${t("tos.title")} - ${t("title")}`}
-				canonical={path("/pagina/terminos")}
+				canonical={path("/pagina/aviso-legal")}
 				noIndex
 			/>
 

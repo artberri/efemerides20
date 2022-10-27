@@ -14,8 +14,21 @@ export const Faq = (): JSX.Element => {
 				Porque no somos la típica página de efemérides. No pretendemos crear una
 				nueva base de datos de Efemérides sino que reutilizamos los datos
 				existentes en la Wikipedia, los clasificamos y los ponemos disponibles
-				de una manera más estructurada mediante nuestra API. Bueno, por eso y
-				porque nacimos en aquel año en el que todo tenía que llamarse 2.0 ;)
+				de una manera más estructurada. Además, el código fuente de esta página
+				es abierto y puede consultarse en{" "}
+				<a
+					target="_blank"
+					rel="noopener noreferrer"
+					href="https://github.com/artberri/efemerides20"
+				>
+					Github
+				</a>
+				.
+			</p>
+			<p>
+				{" "}
+				Bueno, por eso y porque nacimos en aquel año en el que todo tenía que
+				llamarse 2.0 ;)
 			</p>
 			<SectionTitle>
 				¿De dónde procede la información y bajo que licencia está?

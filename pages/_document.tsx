@@ -32,6 +32,14 @@ class MyDocument extends Document {
 				<body>
 					<Main />
 					<NextScript />
+					<script
+						type="text/javascript"
+						dangerouslySetInnerHTML={{
+							__html: `var addthis_config = addthis_config||{};
+							addthis_config.data_use_cookies_ondomain = false;
+							addthis_config.data_use_cookies = false;`,
+						}}
+					/>
 				</body>
 			</Html>
 		)

@@ -113,5 +113,17 @@
 		"tag9": "nacimientos",
 		"tag10": "defunciones",
 		"tag11": "un día como hoy"
+	},
+	"years": {
+		"title": "Efemérides por año",
+		"seoTitle": "Efemérides, acontecimientos, nacimientos y defunciones por año",
+		"breadcrump": "Todos los años",
+		"description": "Todos los acontecimientos, nacimientos y defunciones ocurridos por año. Puedes ayudar añadiendo acontecimientos en esta base de datos pública de efemérides. Descubre que sucedió este mes, quienes nacieron o murieron y otras curiosidades.",
+		"keywords": "años, efemérides, acontecimientos, nacimientos",
+		"olderYears": "Listados más antiguos.",
+		"beforeCommonEra": "Anteriores al año 0",
+		"perYear": "Listados de acontecimientos, nacimientos y defunciones por año.",
+		"fromTo": "Desde el año {{from}} al año {{to}}",
+		"year": "Año {{year}}"
 	}
 }

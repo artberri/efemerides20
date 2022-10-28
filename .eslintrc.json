@@ -36,6 +36,7 @@
 				"allowDirectConstAssertionInArrowFunctions": true
 			}
 		],
-		"@typescript-eslint/explicit-member-accessibility": ["error"]
+		"@typescript-eslint/explicit-member-accessibility": ["error"],
+		"@typescript-eslint/no-non-null-assertion": ["error"]
 	}
 }

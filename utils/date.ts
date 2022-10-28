@@ -86,3 +86,21 @@ export const getSiblingDays = (day: Day): { prev: Day; next: Day } => ({
 	prev: getPreviousDay(day),
 	next: getNextDay(day),
 })
+
+export const yearRanges: ReadonlyArray<[from: number, to: number]> = [
+	[0, 500],
+	[501, 1000],
+	[1001, 1500],
+	[1501, 1600],
+	[1601, 1700],
+]
+
+export const getYearsToList = (): ReadonlyArray<number> => {
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	const yearlyFrom = yearRanges.at(-1)![1]
+	const yearlyTo = new Date().getFullYear()
+
+	return generateNumberArray(yearlyTo - yearlyFrom).map(
+		(year) => year + yearlyFrom,
+	)
+}

@@ -83,7 +83,11 @@
 		"date": "El {{day}} de <emphatize>{{month}}</emphatize> de {{year}}"
 	},
 	"day": {
-		"title": "Efemérides del día {{day}} de {{month}}"
+		"title": "Efemérides del día {{day}} de {{month}}",
+		"seoTitle": "Efemérides, acontecimientos, nacimientos y defunciones del {{day}} de {{month}}",
+		"breadcrump": "Día {{day}}",
+		"description": "Todos los acontecimientos, nacimientos y defunciones ocurridos el {{day}} de {{month}} de cualquier año. Descubre que sucedió este mes, quienes nacieron o murieron y otras curiosidades.",
+		"keywords": "{{day}} de {{month}}, efemérides, acontecimientos, nacimientos, {{month}}"
 	},
 	"tagcloud": {
 		"tag1": "efemérides",

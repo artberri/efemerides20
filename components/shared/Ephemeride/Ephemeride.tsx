@@ -13,6 +13,10 @@ export const Ephemeride = ({
 }: EphemerideProps): JSX.Element => {
 	const { t } = useTranslation()
 	const month = getMonth(ephemeride.month as MonthNumber)
+	const yearString =
+		ephemeride.year < 0
+			? `${Math.abs(ephemeride.year)} ${t("common.beforeCommonEra")}`
+			: String(ephemeride.year)
 
 	return (
 		<p key={ephemeride.content}>
@@ -24,7 +28,7 @@ export const Ephemeride = ({
 				values={{
 					day: ephemeride.day,
 					month: t(`monthName.${month.name}`),
-					year: ephemeride.year,
+					year: yearString,
 				}}
 			/>{" "}
 			{ephemeride.type === "birth" && t("action.borns")}{" "}

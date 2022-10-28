@@ -9,7 +9,8 @@
 		"deads": "muere"
 	},
 	"common": {
-		"and": "y"
+		"and": "y",
+		"beforeCommonEra": "a. C."
 	},
 	"home": {
 		"title": "Efemérides 2.0 - Efemérides, acontecimientos, nacimientos, defunciones",

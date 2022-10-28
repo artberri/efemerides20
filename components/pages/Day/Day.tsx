@@ -1,20 +1,20 @@
 import { useTranslation } from "next-i18next"
 import { Fragment } from "react"
 import { useScript } from "../../../hooks/useScript"
-import { getMonthDays, Month as MonthItem } from "../../../utils/date"
+import { Day as DayItem } from "../../../utils/date"
 import { EphemerideList } from "../../shared/EphemerideList/EphemerideList"
 import { Title } from "../../shared/Title/Title"
-import { MonthPagination } from "./components/MonthPagination/MonthPagination"
+import { NearbyDays } from "./components/NearbyDays/NearbyDays"
 
 export interface MonthProps {
-	month: MonthItem
+	day: DayItem
 	ephemerides: Ephemerides
 	births: Ephemerides
 	deaths: Ephemerides
 }
 
-export const Month = ({
-	month,
+export const Day = ({
+	day,
 	ephemerides,
 	births,
 	deaths,
@@ -23,39 +23,42 @@ export const Month = ({
 		src: "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-597f3f4cd029203f",
 	})
 	const { t } = useTranslation()
-	const days = getMonthDays(month)
 
 	return (
 		<Fragment>
 			<Title>
-				{t("month.title", {
-					month: t(`monthName.${month.name}`),
+				{t("day.title", {
+					month: t(`monthName.${day.month.name}`),
+					day: day.number,
 				})}
 			</Title>
-			<MonthPagination days={days} />
+			<NearbyDays day={day} />
 			<EphemerideList
-				title={t("month.subtitle.events", {
-					month: t(`monthName.${month.name}`),
+				title={t("day.subtitle.events", {
+					month: t(`monthName.${day.month.name}`),
+					day: day.number,
 				})}
 				ephemerides={ephemerides}
-				type="month"
+				type="day"
 			/>
 			<EphemerideList
-				title={t("month.subtitle.births", {
-					month: t(`monthName.${month.name}`),
+				title={t("day.subtitle.births", {
+					month: t(`monthName.${day.month.name}`),
+					day: day.number,
 				})}
 				ephemerides={births}
-				type="month"
+				type="day"
 			/>
 			<EphemerideList
 				className="pb-6"
-				title={t("month.subtitle.deaths", {
-					month: t(`monthName.${month.name}`),
+				title={t("day.subtitle.deaths", {
+					month: t(`monthName.${day.month.name}`),
+					day: day.number,
 				})}
 				ephemerides={deaths}
-				type="month"
+				type="day"
 			/>
-			<MonthPagination days={days} />
+			<NearbyDays day={day} />
 		</Fragment>
 	)
 }

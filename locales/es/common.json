@@ -8,6 +8,9 @@
 		"borns": "nace",
 		"deads": "muere"
 	},
+	"common": {
+		"and": "y"
+	},
 	"home": {
 		"title": "Efemérides 2.0 - Efemérides, acontecimientos, nacimientos, defunciones",
 		"breadcrump": "Efemérides",
@@ -87,7 +90,15 @@
 		"seoTitle": "Efemérides, acontecimientos, nacimientos y defunciones del {{day}} de {{month}}",
 		"breadcrump": "Día {{day}}",
 		"description": "Todos los acontecimientos, nacimientos y defunciones ocurridos el {{day}} de {{month}} de cualquier año. Descubre que sucedió este mes, quienes nacieron o murieron y otras curiosidades.",
-		"keywords": "{{day}} de {{month}}, efemérides, acontecimientos, nacimientos, {{month}}"
+		"keywords": "{{day}} de {{month}}, efemérides, acontecimientos, nacimientos, {{month}}",
+		"subtitle": {
+			"events": "Acontecimientos del {{day}} de {{month}}",
+			"births": "Nacimientos del {{day}} de {{month}}",
+			"deaths": "Defunciones del {{day}} de {{month}}"
+		},
+		"date": "El <emphatize>{{day}} de {{month}}</emphatize> de {{year}}",
+		"nearby": "Días cercanos",
+		"name": "{{day}} de {{month}}"
 	},
 	"tagcloud": {
 		"tag1": "efemérides",

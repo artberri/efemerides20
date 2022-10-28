@@ -43,3 +43,46 @@ export const getMonthDayOrThrow = (month: Month, day: number): Day => {
 
 	return monthDay
 }
+
+export const getPreviousDay = (day: Day): Day => {
+	const prevDay = day.number - 1
+
+	if (prevDay < 1) {
+		const prevMonth =
+			day.month.number === 1 ? 12 : ((day.month.number - 1) as MonthNumber)
+
+		return {
+			number: months[prevMonth].days,
+			month: months[prevMonth],
+		}
+	}
+
+	return {
+		number: prevDay,
+		month: day.month,
+	}
+}
+
+export const getNextDay = (day: Day): Day => {
+	const nextDay = day.number + 1
+
+	if (nextDay > day.month.days) {
+		const nextMonth =
+			day.month.number === 12 ? 1 : ((day.month.number + 1) as MonthNumber)
+
+		return {
+			number: 1,
+			month: months[nextMonth],
+		}
+	}
+
+	return {
+		number: nextDay,
+		month: day.month,
+	}
+}
+
+export const getSiblingDays = (day: Day): { prev: Day; next: Day } => ({
+	prev: getPreviousDay(day),
+	next: getNextDay(day),
+})

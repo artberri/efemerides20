@@ -8,7 +8,7 @@ module.exports = {
 		loader: "custom",
 	},
 	env: {
-		facebookAppId: process.env.FACEBOOK_APP_ID,
+		facebookAppId: process.env.FACEBOOK_APP_ID || "38171299365",
 		basePath: process.env.BASE_PATH || `http://localhost:${port}`,
 	},
 }

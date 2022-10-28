@@ -4,16 +4,20 @@ import { getMonth, MonthNumber } from "../../../utils/date"
 
 export interface EphemerideProps {
 	ephemeride: Ephemeride
+	type: "month" | "day"
 }
 
-export const Ephemeride = ({ ephemeride }: EphemerideProps): JSX.Element => {
+export const Ephemeride = ({
+	ephemeride,
+	type,
+}: EphemerideProps): JSX.Element => {
 	const { t } = useTranslation()
 	const month = getMonth(ephemeride.month as MonthNumber)
 
 	return (
 		<p key={ephemeride.content}>
 			<Trans
-				i18nKey="month.date"
+				i18nKey={`${type}.date`}
 				components={{
 					emphatize: <strong>_</strong>,
 				}}

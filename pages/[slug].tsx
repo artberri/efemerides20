@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next"
 import { Fragment } from "react"
 import { Head } from "../components/layout/Head/Head"
 import { Page } from "../components/layout/Page/Page"
+import { Day } from "../components/pages/Day/Day"
 import { Month } from "../components/pages/Month/Month"
 import { useAbsolutePath } from "../hooks/useAbsolutePath"
 import { useMonthOrDay } from "../hooks/useMonthOrDay"
@@ -116,7 +117,12 @@ const MonthOrDayPage: NextPage<MonthOrDayPageProps> = ({
 					],
 				}}
 			>
-				{translatedMonth} {day.number}
+				<Day
+					day={day}
+					ephemerides={ephemerides}
+					births={births}
+					deaths={deaths}
+				/>
 			</Page>
 		</Fragment>
 	)

@@ -6,7 +6,7 @@ import { EphemerideList } from "../../shared/EphemerideList/EphemerideList"
 import { Title } from "../../shared/Title/Title"
 import { NearbyDays } from "./components/NearbyDays/NearbyDays"
 
-export interface DayProps {
+export interface MonthProps {
 	day: DayItem
 	ephemerides: Ephemerides
 	births: Ephemerides
@@ -18,7 +18,7 @@ export const Day = ({
 	ephemerides,
 	births,
 	deaths,
-}: DayProps): JSX.Element => {
+}: MonthProps): JSX.Element => {
 	useScript({
 		src: "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-597f3f4cd029203f",
 	})

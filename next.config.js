@@ -11,4 +11,7 @@ module.exports = {
 		facebookAppId: process.env.FACEBOOK_APP_ID || "38171299365",
 		basePath: process.env.BASE_PATH || `http://localhost:${port}`,
 	},
+	experimental: {
+		largePageDataBytes: 500 * 100000,
+	},
 }

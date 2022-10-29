@@ -95,7 +95,7 @@ export const yearRanges: ReadonlyArray<[from: number, to: number]> = [
 	[1601, 1700],
 ]
 
-export const getYearsToList = (): ReadonlyArray<number> => {
+export const getYearsList = (): ReadonlyArray<number> => {
 	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	const yearlyFrom = yearRanges.at(-1)![1]
 	const yearlyTo = new Date().getFullYear()

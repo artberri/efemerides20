@@ -4,7 +4,7 @@ export interface EphemerideListProps {
 	title: string
 	ephemerides: Ephemerides
 	className?: string
-	type: "month" | "day"
+	type: "month" | "day" | "year"
 }
 
 export const EphemerideList = ({

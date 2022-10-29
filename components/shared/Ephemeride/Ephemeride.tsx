@@ -1,10 +1,11 @@
 import { decode } from "html-entities"
 import { Trans, useTranslation } from "next-i18next"
+import Link from "next/link"
 import { getMonth, MonthNumber } from "../../../utils/date"
 
 export interface EphemerideProps {
 	ephemeride: Ephemeride
-	type: "month" | "day"
+	type: "month" | "day" | "year"
 }
 
 export const Ephemeride = ({
@@ -17,6 +18,7 @@ export const Ephemeride = ({
 		ephemeride.year < 0
 			? `${Math.abs(ephemeride.year)} ${t("common.beforeCommonEra")}`
 			: String(ephemeride.year)
+	const translatedMonth = t(`monthName.${month.name}`)
 
 	return (
 		<p key={ephemeride.content}>
@@ -24,10 +26,13 @@ export const Ephemeride = ({
 				i18nKey={`${type}.date`}
 				components={{
 					emphatize: <strong>_</strong>,
+					daylink: (
+						<Link href={`/${ephemeride.day}-de-${translatedMonth}`}>_</Link>
+					),
 				}}
 				values={{
 					day: ephemeride.day,
-					month: t(`monthName.${month.name}`),
+					month: translatedMonth,
 					year: yearString,
 				}}
 			/>{" "}

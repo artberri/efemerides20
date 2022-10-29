@@ -125,5 +125,42 @@
 		"perYear": "Listados de acontecimientos, nacimientos y defunciones por año.",
 		"fromTo": "Desde el año {{from}} al año {{to}}",
 		"year": "Año {{year}}"
+	},
+	"year": {
+		"title": "Efemérides del año {{year}}",
+		"seoTitle": "Efemérides, acontecimientos, nacimientos y defunciones del año {{year}}",
+		"breadcrump": "Año {{year}}",
+		"description": "Todos los acontecimientos, nacimientos y defunciones ocurridos el año {{year}}. Descubre que sucedió este mes, quienes nacieron o murieron y otras curiosidades.",
+		"keywords": "{{year}}, efemérides, acontecimientos, nacimientos",
+		"subtitle": {
+			"events": "Acontecimientos del año {{year}}",
+			"births": "Nacimientos del año {{year}}",
+			"deaths": "Defunciones del año {{year}}"
+		},
+		"date": "El <daylink>{{day}} de {{month}}</daylink> de <emphatize>{{year}}</emphatize>"
+	},
+	"yearRange": {
+		"title": "Efemérides desde el año {{from}} al año {{to}}",
+		"seoTitle": "Efemérides, acontecimientos, nacimientos y defunciones desde el año {{from}} al año {{to}}",
+		"breadcrump": "Desde el año {{from}} al año {{to}}",
+		"description": "Todos los acontecimientos, nacimientos y defunciones ocurridos desde el año {{from}} al año {{to}}. Puedes ayudar añadiendo acontecimientos en esta base de datos pública de efemérides. Descubre que sucedió este mes, quienes nacieron o murieron y otras curiosidades.",
+		"keywords": "{{from}}, {{to}}, efemérides, acontecimientos, nacimientos",
+		"subtitle": {
+			"events": "Acontecimientos desde el año {{from}} al año {{to}}",
+			"births": "Nacimientos desde el año {{from}} al año {{to}}",
+			"deaths": "Defunciones desde el año {{from}} al año {{to}}"
+		}
+	},
+	"beforeCommonEra": {
+		"title": "Efemérides de antes de años anteriores al año 0",
+		"seoTitle": "Efemérides, acontecimientos, nacimientos y defunciones de años anteriores al año 0",
+		"breadcrump": "Anteriores al año 0",
+		"description": "Todos los acontecimientos, nacimientos y defunciones ocurridos antes del año 0. Puedes ayudar añadiendo acontecimientos en esta base de datos pública de efemérides. Descubre que sucedió este mes, quienes nacieron o murieron y otras curiosidades.",
+		"keywords": "anteriores al año 0, antes de Cristo, efemérides, acontecimientos, nacimientos",
+		"subtitle": {
+			"events": "Acontecimientos de años anteriores al año 0",
+			"births": "Nacimientos de años anteriores al año 0",
+			"deaths": "Defunciones de años anteriores al año 0"
+		}
 	}
 }

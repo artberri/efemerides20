@@ -35,7 +35,7 @@ class MyDocument extends Document {
 					<script
 						type="text/javascript"
 						dangerouslySetInnerHTML={{
-							__html: `var addthis_config = addthis_config||{};
+							__html: `window.addthis_config = window.addthis_config||{};
 							addthis_config.data_use_cookies_ondomain = false;
 							addthis_config.data_use_cookies = false;`,
 						}}

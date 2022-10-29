@@ -132,7 +132,7 @@ const randomTen = (e: Ephemerides): Ephemerides =>
 	sortEphemerides(shuffle(e).slice(0, 10))
 
 const getMonthEphemeridesBySlug = (slug = ""): Promise<MonthOrDayPageProps> => {
-	const month = findMonthByTranslationOrThrow(tFunction, slug || "")
+	const month = findMonthByTranslationOrThrow(tFunction, slug)
 
 	return findByMonth(month)
 		.then(clasifyEphemerides)
@@ -149,7 +149,7 @@ const getDayEphemeridesBySlug = (slug = ""): Promise<MonthOrDayPageProps> => {
 	const month = findMonthByTranslationOrThrow(tFunction, monthString || "")
 	const day = getMonthDayOrThrow(month, parseInt(dayString || "", 10))
 
-	return findByDay(day).then(clasifyEphemerides)
+	return findByDay(day).then(sortEphemerides).then(clasifyEphemerides)
 }
 
 export const getStaticProps = makeStaticProps((params?: { slug: string }) =>

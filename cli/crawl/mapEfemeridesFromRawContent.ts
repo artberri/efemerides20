@@ -33,14 +33,14 @@ const splitYearAndContent = (
 	}
 }
 
-const findNodes = (s: string): EphemerideNode[] => {
+const findNodes = (s: string): EphemerideTopic[] => {
 	const regex = new RegExp(
 		`<a\\s+href=['"](?<url>[^'"]+)['"]\\s*(?:title=['"](?<title>[^'"]+)['"])(?:[^>]+)?\\s*>(?<anchor>(?:(?!</a>).)*)</a>`,
 		"gi",
 	)
 
 	return Array.from(s.matchAll(regex)).map(({ groups }) => {
-		const g = groups as unknown as EphemerideNode
+		const g = groups as unknown as EphemerideTopic
 
 		return {
 			url: g.url,

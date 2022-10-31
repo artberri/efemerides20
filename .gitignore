@@ -39,3 +39,4 @@ yarn-error.log*
 
 # app
 ephemerides.json
+topics.json

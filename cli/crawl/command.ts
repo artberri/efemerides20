@@ -15,7 +15,7 @@ export const addCrawlCommand = (program: Command): void =>
 			(
 				month: MonthNumber | undefined,
 				day: number | undefined,
-				options: { debug?: boolean; dry?: boolean },
+				options: { debug?: boolean },
 			) => {
 				createLogger(!!options.debug)
 
@@ -28,6 +28,9 @@ export const addCrawlCommand = (program: Command): void =>
 							: // eslint-disable-next-line no-console
 							  console.log(JSON.stringify(e)),
 					)
-					.catch((e: Error) => error(e.toString()))
+					.catch((e: Error) => {
+						error(e.toString())
+						process.exit(1)
+					})
 			},
 		)

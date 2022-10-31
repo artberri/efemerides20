@@ -35,3 +35,20 @@ export const findByYear = ({
 		.run(`[ .[] ${fromClause} ${toClause} ] `, jsonPath, {})
 		.then(parseEphemerides)
 }
+
+export const findTopNodeUrls = (
+	_max: number,
+): Promise<ReadonlyArray<{ url: string; count: number }>> =>
+	jq
+		.run(
+			`[ .[] | .nodes[] ] | group_by(.url) | map(.[0] + {"count": length}) | sort_by(.count) | reverse | .[0:${_max}]`,
+			jsonPath,
+			{},
+		)
+		.then(
+			(output) =>
+				JSON.parse(output as string) as ReadonlyArray<{
+					url: string
+					count: number
+				}>,
+		)

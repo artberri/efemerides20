@@ -1,6 +1,6 @@
 import { t } from "i18next"
 import { Day } from "../../utils/date"
-import { getUrlContent } from "./getUrlContent"
+import { getUrlContent } from "../shared/getUrlContent"
 
 const baseUrl = "https://es.wikipedia.org"
 

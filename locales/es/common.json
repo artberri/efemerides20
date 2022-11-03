@@ -162,5 +162,15 @@
 			"births": "Nacimientos de años anteriores al año 0",
 			"deaths": "Defunciones de años anteriores al año 0"
 		}
+	},
+	"topics": {
+		"title": "Los 100 temas con más efemérides",
+		"seoTitle": "Los 100 temas con más efemérides, acontecimientos, nacimientos o defunciones",
+		"breadcrump": "Los 100 temas con más efemérides",
+		"description": "Los 100 temas con más acontecimientos, nacimientos y defunciones. Puedes ayudar añadiendo acontecimientos en esta base de datos pública de efemérides. Descubre que sucedió este mes, quienes nacieron o murieron y otras curiosidades.",
+		"keywords": "top 100, temas, efemérides, acontecimientos, nacimientos",
+		"subtitle": "Estos son los 100 temas más repetidos en las efemérides de la Wikipedia en español",
+		"ranking": "{{position}}º",
+		"countOf": "Total de efemérides: {{count}}"
 	}
 }

@@ -15,7 +15,7 @@ export const Years = (): JSX.Element => {
 			<p className="text-center">{t("years.olderYears")}</p>
 			<p className="text-center">
 				<Link href={"/anos/hasta-0"} legacyBehavior>
-					<a className="mt-2 inline-block bg-primary bg-primary px-2 py-1 text-sm text-white transition duration-300 hover:bg-darker hover:bg-darker hover:text-white focus:text-white active:text-white">
+					<a className="mt-2 inline-block bg-primary px-2 py-1 text-sm text-white transition duration-300 hover:bg-darker hover:text-white focus:text-white active:text-white">
 						{t("years.beforeCommonEra")}
 					</a>
 				</Link>
@@ -23,7 +23,7 @@ export const Years = (): JSX.Element => {
 				{yearRanges.map(([from, to]) => (
 					<Fragment key={`range-${from}-${to}`}>
 						<Link href={`/anos/desde-${from}-a-${to}`} legacyBehavior>
-							<a className="mt-2 inline-block bg-primary bg-primary px-2 py-1 text-sm text-white transition duration-300 hover:bg-darker hover:bg-darker hover:text-white focus:text-white active:text-white">
+							<a className="mt-2 inline-block bg-primary px-2 py-1 text-sm text-white transition duration-300 hover:bg-darker hover:text-white focus:text-white active:text-white">
 								{t("years.fromTo", {
 									from,
 									to,
@@ -39,7 +39,7 @@ export const Years = (): JSX.Element => {
 				{years.map((year) => (
 					<Fragment key={`year-${year}`}>
 						<Link href={`/anos/${year}`} legacyBehavior>
-							<a className="mt-2 inline-block bg-primary bg-primary px-2 py-1 text-sm text-white transition duration-300 hover:bg-darker hover:bg-darker hover:text-white focus:text-white active:text-white">
+							<a className="mt-2 inline-block bg-primary px-2 py-1 text-sm text-white transition duration-300 hover:bg-darker hover:text-white focus:text-white active:text-white">
 								{t("years.year", {
 									year,
 								})}

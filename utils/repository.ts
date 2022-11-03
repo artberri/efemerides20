@@ -5,18 +5,23 @@ import { Day, Month } from "./date"
 const parseEphemerides = (output: string | object): Ephemerides =>
 	JSON.parse(output as string)
 
-const jsonPath = path.resolve(process.cwd(), "ephemerides.json")
+const ephemeridesJsonPath = path.resolve(process.cwd(), "ephemerides.json")
+const topicsJsonPath = path.resolve(process.cwd(), "topics.json")
 
 export const findByMonth = (month: Month): Promise<Ephemerides> =>
 	jq
-		.run(`[ .[] | select(.month == ${month.number}) ] `, jsonPath, {})
+		.run(
+			`[ .[] | select(.month == ${month.number}) ] `,
+			ephemeridesJsonPath,
+			{},
+		)
 		.then(parseEphemerides)
 
 export const findByDay = (day: Day): Promise<Ephemerides> =>
 	jq
 		.run(
 			`[ .[] | select(.month == ${day.month.number}) | select(.day == ${day.number}) ] `,
-			jsonPath,
+			ephemeridesJsonPath,
 			{},
 		)
 		.then(parseEphemerides)
@@ -32,17 +37,17 @@ export const findByYear = ({
 	const toClause = to !== undefined ? `| select(.year <= ${to})` : ""
 
 	return jq
-		.run(`[ .[] ${fromClause} ${toClause} ] `, jsonPath, {})
+		.run(`[ .[] ${fromClause} ${toClause} ] `, ephemeridesJsonPath, {})
 		.then(parseEphemerides)
 }
 
 export const findTopNodeUrls = (
-	_max: number,
+	max: number,
 ): Promise<ReadonlyArray<{ url: string; count: number }>> =>
 	jq
 		.run(
-			`[ .[] | .nodes[] ] | group_by(.url) | map(.[0] + {"count": length}) | sort_by(.count) | reverse | .[0:${_max}]`,
-			jsonPath,
+			`[ .[] | .nodes[] | select(.url | index("/wiki/Wikipedia:Verificabilidad") | not) ] | group_by(.url) | map(.[0] + {"count": length}) | sort_by(.count) | reverse | .[0:${max}]`,
+			ephemeridesJsonPath,
 			{},
 		)
 		.then(
@@ -52,3 +57,8 @@ export const findTopNodeUrls = (
 					count: number
 				}>,
 		)
+
+export const findTopTopics = (): Promise<Topics> =>
+	jq
+		.run(`[ .[] ]`, topicsJsonPath, {})
+		.then((output) => JSON.parse(output as string) as Topics)

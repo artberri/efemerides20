@@ -7,4 +7,4 @@
   for = "/*"
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
-    Content-Security-Policy = "default-src 'self' http://*.addthis.com data:; connect-src 'self' https://cloudflareinsights.com http://*.addthis.com; script-src 'self' https://static.cloudflareinsights.com http://*.addthis.com https://*.addthisedge.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';"
+    Content-Security-Policy = "default-src 'self' http://*.addthis.com; img-src 'self' https://upload.wikimedia.org data:; connect-src 'self' https://cloudflareinsights.com http://*.addthis.com; script-src 'self' https://static.cloudflareinsights.com http://*.addthis.com https://*.addthisedge.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';"

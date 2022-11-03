@@ -29,7 +29,6 @@ export const addCrawlCommand = (program: Command): void =>
 							  console.log(JSON.stringify(e)),
 					)
 					.catch((e: Error) => {
-						console.log("rrrr")
 						error(e.message)
 						process.exit(1)
 					})

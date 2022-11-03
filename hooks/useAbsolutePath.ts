@@ -1,6 +1,11 @@
-export const useAbsolutePath = () => {
+export const useAbsolutePath = (): {
+	base: string
+	path: (name: string) => string
+} => {
+	const basePath = process.env["basePath"] || `https://www.efemerides20.com`
+
 	return {
-		base: process.env["basePath"],
-		path: (pathname: string) => `${process.env["basePath"]}${pathname}`,
+		base: basePath,
+		path: (pathname: string) => `${basePath}${pathname}`,
 	}
 }

@@ -100,13 +100,13 @@ export const Terms = (): JSX.Element => {
 					<a
 						target="_blank"
 						rel="noopener noreferrer"
-						href="http://es.wikipedia.org/wiki/Wikipedia:Texto_de_la_Licencia_de_documentaci%C3%B3n_libre_de_GNU"
+						href="https://es.wikipedia.org/wiki/Wikipedia:Texto_de_la_Licencia_de_documentaci%C3%B3n_libre_de_GNU"
 					>
 						Licencia de documentación libre de GNU
 					</a>{" "}
 					y que ha sido recogido de la{" "}
 					<a
-						href="http://es.wikipedia.org/"
+						href="https://es.wikipedia.org/"
 						target="_blank"
 						rel="noopener noreferrer"
 					>

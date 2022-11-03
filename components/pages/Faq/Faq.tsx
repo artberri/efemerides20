@@ -26,7 +26,6 @@ export const Faq = (): JSX.Element => {
 				.
 			</p>
 			<p>
-				{" "}
 				Bueno, por eso y porque nacimos en aquel año en el que todo tenía que
 				llamarse 2.0 ;)
 			</p>
@@ -36,11 +35,22 @@ export const Faq = (): JSX.Element => {
 			<p>
 				El contenido sobre efemérides, nacimientos y defunciones disponible en
 				esta web está bajo los términos de la{" "}
-				<a href="http://es.wikipedia.org/wiki/Wikipedia:Texto_de_la_Licencia_de_documentaci%C3%B3n_libre_de_GNU">
+				<a
+					target="_blank"
+					rel="noopener noreferrer"
+					href="https://es.wikipedia.org/wiki/Wikipedia:Texto_de_la_Licencia_de_documentaci%C3%B3n_libre_de_GNU"
+				>
 					Licencia de documentación libre de GNU
 				</a>
 				. Éste contenido ha sido recogido de la{" "}
-				<a href="http://es.wikipedia.org/">Wikipedia</a>.
+				<a
+					target="_blank"
+					rel="noopener noreferrer"
+					href="https://es.wikipedia.org/"
+				>
+					Wikipedia
+				</a>
+				.
 			</p>
 			<SectionTitle>¿Puedo insertar una efeméride?</SectionTitle>
 			<p>
@@ -50,7 +60,14 @@ export const Faq = (): JSX.Element => {
 				actualizar y filtrar las efemérides importantes. Duplicar esfuerzos no
 				nos parece muy productivo, por lo que si quieres añadir una efeméride
 				importante es mejor que edites la página correspondiente al día en la{" "}
-				<a href="http://es.wikipedia.org/">Wikipedia</a>.
+				<a
+					target="_blank"
+					rel="noopener noreferrer"
+					href="https://es.wikipedia.org/"
+				>
+					Wikipedia
+				</a>
+				.
 			</p>
 			<SectionTitle>
 				¿Puedo poner estas efemérides en mi página web o blog?

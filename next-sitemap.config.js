@@ -7,7 +7,7 @@ const isYear = (path) => path.startsWith("/anos/")
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-	siteUrl: process.env.SITE_URL || "https://www.efemerides20.com",
+	siteUrl: process.env.BASE_PATH || "https://www.efemerides20.com",
 	generateRobotsTxt: false,
 	generateIndexSitemap: false,
 	outDir: "out",

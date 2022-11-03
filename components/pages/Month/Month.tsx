@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next"
 import { Fragment } from "react"
-import { useScript } from "../../../hooks/useScript"
 import { getMonthDays, Month as MonthItem } from "../../../utils/date"
+import { AddThis } from "../../shared/AddThis/AddThis"
 import { EphemerideList } from "../../shared/EphemerideList/EphemerideList"
 import { Title } from "../../shared/Title/Title"
 import { MonthPagination } from "./components/MonthPagination/MonthPagination"
@@ -19,9 +19,6 @@ export const Month = ({
 	births,
 	deaths,
 }: MonthProps): JSX.Element => {
-	useScript({
-		src: "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-597f3f4cd029203f",
-	})
 	const { t } = useTranslation()
 	const days = getMonthDays(month)
 
@@ -56,6 +53,7 @@ export const Month = ({
 				type="month"
 			/>
 			<MonthPagination days={days} />
+			<AddThis key={`addthis-script-month-${month.name}`} />
 		</Fragment>
 	)
 }

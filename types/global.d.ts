@@ -2,16 +2,8 @@ export {}
 
 declare global {
 	interface Window {
-		twttr: {
-			widgets: {
-				load: () => void
-			}
-		}
-
-		FB: {
-			XFBML: {
-				parse: () => void
-			}
+		addthis: {
+			update(type: string, key: string, value: string): void
 		}
 	}
 }

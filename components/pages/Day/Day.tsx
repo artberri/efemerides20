@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next"
 import { Fragment } from "react"
-import { useScript } from "../../../hooks/useScript"
 import { Day as DayItem } from "../../../utils/date"
+import { AddThis } from "../../shared/AddThis/AddThis"
 import { EphemerideList } from "../../shared/EphemerideList/EphemerideList"
 import { Title } from "../../shared/Title/Title"
 import { NearbyDays } from "./components/NearbyDays/NearbyDays"
@@ -21,9 +21,6 @@ export const Day = ({
 	deaths,
 	topics,
 }: DayProps): JSX.Element => {
-	useScript({
-		src: "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-597f3f4cd029203f",
-	})
 	const { t } = useTranslation()
 
 	return (
@@ -64,6 +61,7 @@ export const Day = ({
 				type="day"
 			/>
 			<NearbyDays day={day} />
+			<AddThis key={`addthis-script-day-${day.month.name}-${day.number}`} />
 		</Fragment>
 	)
 }

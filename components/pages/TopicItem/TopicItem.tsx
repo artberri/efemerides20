@@ -1,6 +1,6 @@
 import { Trans, useTranslation } from "next-i18next"
 import { Fragment } from "react"
-import { useScript } from "../../../hooks/useScript"
+import { AddThis } from "../../shared/AddThis/AddThis"
 import { EphemerideList } from "../../shared/EphemerideList/EphemerideList"
 import { Title } from "../../shared/Title/Title"
 
@@ -13,9 +13,6 @@ export const TopicItem = ({
 	ephemerides,
 	topic,
 }: TopicItemProps): JSX.Element => {
-	useScript({
-		src: "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-597f3f4cd029203f",
-	})
 	const { t } = useTranslation()
 
 	return (
@@ -48,6 +45,7 @@ export const TopicItem = ({
 				ephemerides={ephemerides}
 				type="topic"
 			/>
+			<AddThis key={`addthis-script-topic-${topic.slug}`} />
 		</Fragment>
 	)
 }

@@ -6,6 +6,7 @@ import Document, {
 	Main,
 	NextScript,
 } from "next/document"
+import Script from "next/script"
 import { i18n } from "../next-i18next.config"
 
 class MyDocument extends Document {
@@ -32,13 +33,17 @@ class MyDocument extends Document {
 				<body>
 					<Main />
 					<NextScript />
-					<script
-						type="text/javascript"
-						dangerouslySetInnerHTML={{
-							__html: `window.addthis_config = window.addthis_config||{};
-							addthis_config.data_use_cookies_ondomain = false;
-							addthis_config.data_use_cookies = false;`,
-						}}
+					<Script
+						id="addthis-config"
+						strategy="beforeInteractive"
+					>{`window.addthis_config = window.addthis_config||{};
+						addthis_config.data_use_cookies_ondomain = false;
+						addthis_config.data_use_cookies = false;`}</Script>
+					<Script
+						strategy="afterInteractive"
+						id="cloudflare-web-analytics"
+						src="https://static.cloudflareinsights.com/beacon.min.js"
+						data-cf-beacon='{"token": "81a81377e90843de9d256dd1ab5dae9a"}'
 					/>
 				</body>
 			</Html>

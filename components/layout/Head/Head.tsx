@@ -39,7 +39,7 @@ export const Head = ({
 			<meta property="og:site_name" content={t("title")} />
 			<meta property="og:description" content={description} />
 			{process.env["facebookAppId"] && (
-				<meta property="fb:app_id" content="38171299365" />
+				<meta property="fb:app_id" content={process.env["facebookAppId"]} />
 			)}
 		</NextHead>
 	)

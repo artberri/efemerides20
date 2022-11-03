@@ -1,7 +1,7 @@
 import { useTranslation } from "next-i18next"
 import { Fragment } from "react"
-import { useScript } from "../../../hooks/useScript"
 import { useYearOrRange } from "../../../hooks/useYearOrRange"
+import { AddThis } from "../../shared/AddThis/AddThis"
 import { EphemerideList } from "../../shared/EphemerideList/EphemerideList"
 import { Title } from "../../shared/Title/Title"
 
@@ -20,9 +20,6 @@ export const YearOrRange = ({
 	mainKey,
 	data,
 }: YearOrRangeProps): JSX.Element => {
-	useScript({
-		src: "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-597f3f4cd029203f",
-	})
 	const { t } = useTranslation()
 
 	return (
@@ -43,6 +40,9 @@ export const YearOrRange = ({
 				title={t(`${mainKey}.subtitle.deaths`, { ...data })}
 				ephemerides={deaths}
 				type="year"
+			/>
+			<AddThis
+				key={`addthis-script-year-${data.from}-${data.to}-${data.year}`}
 			/>
 		</Fragment>
 	)

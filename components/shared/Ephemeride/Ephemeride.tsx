@@ -13,12 +13,24 @@ const replaceJSX = (
 	content: ReadonlyArray<string>,
 	topics: ReadonlyArray<{
 		anchor: string
-		link: JSX.Element
+		slug: string
 	}>,
 ): ReadonlyArray<string | JSX.Element> =>
-	content.map(
-		(str) => topics.find((topic) => topic.anchor === str)?.link ?? str,
-	)
+	content.map((str, key) => {
+		const found = topics.find((topic) => topic.anchor === str)
+		if (found) {
+			return (
+				<Link
+					key={`node-link-${key}-${found.slug}`}
+					href={`/nodos/${found.slug}`}
+				>
+					{found.anchor}
+				</Link>
+			)
+		}
+
+		return str
+	})
 
 const toArray = (text: string, finds: string[]): ReadonlyArray<string> => {
 	let output = text
@@ -43,7 +55,7 @@ export const Ephemeride = ({
 	const translatedMonth = t(`monthName.${month.name}`)
 
 	const topTopics = ephemeride.nodes
-		.map((node: EphemerideTopic) => {
+		.map((node) => {
 			const foundTopic = topics.find((topic) => topic.url === node.url)
 			if (!foundTopic) {
 				return undefined
@@ -51,16 +63,12 @@ export const Ephemeride = ({
 
 			return {
 				anchor: node.anchor,
-				link: (
-					<Link key={foundTopic.slug} href={`/nodos/${foundTopic.slug}`}>
-						{node.anchor}
-					</Link>
-				),
+				slug: foundTopic.slug,
 			}
 		})
 		.filter((tuple) => tuple !== undefined) as ReadonlyArray<{
 		anchor: string
-		link: JSX.Element
+		slug: string
 	}>
 
 	const content = toArray(

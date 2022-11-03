@@ -19,7 +19,10 @@ export const TopicList = ({ topics }: TopicListProps): JSX.Element => {
 			<p>{t("topics.subtitle")}</p>
 			<ul className="m-0 flex flex-wrap p-0">
 				{topics.map((topic, key) => (
-					<li key={`topic-${topic.slug}`} className="m-0 w-1/3 list-none p-0">
+					<li
+						key={`topic-${topic.slug}`}
+						className="m-0 w-full list-none p-0 md:w-1/2 lg:w-1/3"
+					>
 						<Link href={`/nodos/${topic.slug}`} legacyBehavior>
 							<a className="m-3 block bg-gray-100 p-3 text-black transition duration-300 hover:bg-gray-200 hover:text-black active:text-black">
 								<article className="flex w-full">

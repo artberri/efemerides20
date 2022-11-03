@@ -46,7 +46,7 @@ export const TopicItem = ({
 			<EphemerideList
 				title={t(`topic.subtitle`)}
 				ephemerides={ephemerides}
-				type="year"
+				type="topic"
 			/>
 		</Fragment>
 	)

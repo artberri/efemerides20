@@ -17,7 +17,7 @@ import {
 } from "../utils/ephemerides"
 import { findMonthByTranslationOrThrow } from "../utils/i18n"
 import { makeStaticProps } from "../utils/makeStaticProps"
-import { findByDay, findByMonth } from "../utils/repository"
+import { findByDay, findByMonth, findTopTopics } from "../utils/repository"
 
 const daySlugSeparator = "-de-"
 
@@ -33,12 +33,14 @@ interface MonthOrDayPageProps {
 	ephemerides: Ephemerides
 	births: Ephemerides
 	deaths: Ephemerides
+	topics?: Topics
 }
 
 const MonthOrDayPage: NextPage<MonthOrDayPageProps> = ({
 	ephemerides,
 	births,
 	deaths,
+	topics = [],
 }) => {
 	const { t } = useTranslation()
 	const { path } = useAbsolutePath()
@@ -122,6 +124,7 @@ const MonthOrDayPage: NextPage<MonthOrDayPageProps> = ({
 					ephemerides={ephemerides}
 					births={births}
 					deaths={deaths}
+					topics={topics}
 				/>
 			</Page>
 		</Fragment>
@@ -149,7 +152,13 @@ const getDayEphemeridesBySlug = (slug = ""): Promise<MonthOrDayPageProps> => {
 	const month = findMonthByTranslationOrThrow(tFunction, monthString || "")
 	const day = getMonthDayOrThrow(month, parseInt(dayString || "", 10))
 
-	return findByDay(day).then(sortEphemerides).then(clasifyEphemerides)
+	return Promise.all([
+		findTopTopics(),
+		findByDay(day).then(sortEphemerides).then(clasifyEphemerides),
+	]).then(([topics, clasifiedEphemerides]) => ({
+		topics,
+		...clasifiedEphemerides,
+	}))
 }
 
 export const getStaticProps = makeStaticProps((params?: { slug: string }) =>

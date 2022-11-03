@@ -11,6 +11,7 @@ export interface DayProps {
 	ephemerides: Ephemerides
 	births: Ephemerides
 	deaths: Ephemerides
+	topics: Topics
 }
 
 export const Day = ({
@@ -18,6 +19,7 @@ export const Day = ({
 	ephemerides,
 	births,
 	deaths,
+	topics,
 }: DayProps): JSX.Element => {
 	useScript({
 		src: "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-597f3f4cd029203f",
@@ -39,6 +41,7 @@ export const Day = ({
 					day: day.number,
 				})}
 				ephemerides={ephemerides}
+				topics={topics}
 				type="day"
 			/>
 			<EphemerideList
@@ -47,6 +50,7 @@ export const Day = ({
 					day: day.number,
 				})}
 				ephemerides={births}
+				topics={topics}
 				type="day"
 			/>
 			<EphemerideList
@@ -56,6 +60,7 @@ export const Day = ({
 					day: day.number,
 				})}
 				ephemerides={deaths}
+				topics={topics}
 				type="day"
 			/>
 			<NearbyDays day={day} />

@@ -4,7 +4,8 @@ export interface EphemerideListProps {
 	title: string
 	ephemerides: Ephemerides
 	className?: string
-	type: "month" | "day" | "year"
+	type: "month" | "day" | "year" | "topic"
+	topics?: Topics
 }
 
 export const EphemerideList = ({
@@ -12,6 +13,7 @@ export const EphemerideList = ({
 	ephemerides,
 	className,
 	type,
+	topics = [],
 }: EphemerideListProps): JSX.Element => {
 	return (
 		<div className={`pt-6 ${className}`}>
@@ -21,6 +23,7 @@ export const EphemerideList = ({
 					key={ephemeride.content}
 					ephemeride={ephemeride}
 					type={type}
+					topics={topics}
 				/>
 			))}
 		</div>

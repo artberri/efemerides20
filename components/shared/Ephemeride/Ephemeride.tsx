@@ -5,12 +5,34 @@ import { getMonth, MonthNumber } from "../../../utils/date"
 
 export interface EphemerideProps {
 	ephemeride: Ephemeride
-	type: "month" | "day" | "year"
+	topics: Topics
+	type: "month" | "day" | "year" | "topic"
+}
+
+const replaceJSX = (
+	content: ReadonlyArray<string>,
+	topics: ReadonlyArray<{
+		anchor: string
+		link: JSX.Element
+	}>,
+): ReadonlyArray<string | JSX.Element> =>
+	content.map(
+		(str) => topics.find((topic) => topic.anchor === str)?.link ?? str,
+	)
+
+const toArray = (text: string, finds: string[]): ReadonlyArray<string> => {
+	let output = text
+	for (const find of finds) {
+		output = output.replaceAll(find, `||${find}||`)
+	}
+
+	return output.split("||").filter((str) => !!str)
 }
 
 export const Ephemeride = ({
 	ephemeride,
 	type,
+	topics,
 }: EphemerideProps): JSX.Element => {
 	const { t } = useTranslation()
 	const month = getMonth(ephemeride.month as MonthNumber)
@@ -19,6 +41,34 @@ export const Ephemeride = ({
 			? `${Math.abs(ephemeride.year)} ${t("common.beforeCommonEra")}`
 			: String(ephemeride.year)
 	const translatedMonth = t(`monthName.${month.name}`)
+
+	const topTopics = ephemeride.nodes
+		.map((node: EphemerideTopic) => {
+			const foundTopic = topics.find((topic) => topic.url === node.url)
+			if (!foundTopic) {
+				return undefined
+			}
+
+			return {
+				anchor: node.anchor,
+				link: (
+					<Link key={foundTopic.slug} href={`/nodos/${foundTopic.slug}`}>
+						{node.anchor}
+					</Link>
+				),
+			}
+		})
+		.filter((tuple) => tuple !== undefined) as ReadonlyArray<{
+		anchor: string
+		link: JSX.Element
+	}>
+
+	const content = toArray(
+		decode(ephemeride.content),
+		topTopics.map((topic) => topic.anchor),
+	)
+
+	const replacedContent = replaceJSX(content, topTopics)
 
 	return (
 		<p key={ephemeride.content}>
@@ -37,8 +87,7 @@ export const Ephemeride = ({
 				}}
 			/>{" "}
 			{ephemeride.type === "birth" && t("action.borns")}{" "}
-			{ephemeride.type === "death" && t("action.deads")}{" "}
-			{decode(ephemeride.content)}
+			{ephemeride.type === "death" && t("action.deads")} {replacedContent}
 		</p>
 	)
 }

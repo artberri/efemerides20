@@ -7,8 +7,13 @@ import { Page } from "../../components/layout/Page/Page"
 import { TopicItem } from "../../components/pages/TopicItem/TopicItem"
 import { useAbsolutePath } from "../../hooks/useAbsolutePath"
 import es from "../../locales/es/common.json"
+import { sortEphemerides } from "../../utils/ephemerides"
 import { makeStaticProps } from "../../utils/makeStaticProps"
-import { findTopTopic, findTopTopics } from "../../utils/repository"
+import {
+	findByTopicUrl,
+	findTopTopic,
+	findTopTopics,
+} from "../../utils/repository"
 
 init({
 	lng: "es",
@@ -52,10 +57,12 @@ const TopicPage: NextPage<TopicPageProps> = ({ topic, ephemerides }) => {
 }
 
 export const getStaticProps = makeStaticProps((params?: { slug: string }) =>
-	findTopTopic(params?.slug || "").then((topic) => ({
-		topic,
-		ephemerides: [],
-	})),
+	findTopTopic(params?.slug || "").then((topic) =>
+		findByTopicUrl(topic.url).then((ephemerides) => ({
+			topic,
+			ephemerides: sortEphemerides(ephemerides),
+		})),
+	),
 )
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = () =>

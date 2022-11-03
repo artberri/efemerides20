@@ -67,3 +67,12 @@ export const findTopTopic = (slug: string): Promise<Topic> =>
 	jq
 		.run(`.[] | select(.slug == "${slug}")`, topicsJsonPath, {})
 		.then((output) => JSON.parse(output as string) as Topic)
+
+export const findByTopicUrl = (url: string): Promise<Ephemerides> =>
+	jq
+		.run(
+			`[ .[] | select(.nodes[].url | index("${url}") ) ] | unique_by(.content)`,
+			ephemeridesJsonPath,
+			{},
+		)
+		.then((output) => JSON.parse(output as string) as Ephemerides)

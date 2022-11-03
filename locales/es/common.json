@@ -180,6 +180,7 @@
 		"description": "Todos los acontecimientos, nacimientos y defunciones relacionadas con {{name}} de cualquier año. Puedes ayudar añadiendo acontecimientos en esta base de datos pública de efemérides. Descubre que sucedió este mes, quienes nacieron o murieron y otras curiosidades.",
 		"keywords": "{{name}}, efemérides, acontecimientos, nacimientos",
 		"subtitle": "Lista de efemérides",
-		"goToWikipedia": "Puedes ver la información completa sobre {{name}} <wikilink>en la Wikipedia</wikilink>"
+		"goToWikipedia": "Puedes ver la información completa sobre {{name}} <wikilink>en la Wikipedia</wikilink>",
+		"date": "El <daylink>{{day}} de {{month}}</daylink> de {{year}}"
 	}
 }

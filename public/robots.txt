@@ -129,4 +129,4 @@ Disallow: /
 User-agent: WebReaper
 Disallow: /
 
-Sitemap: https://efemerides20.com/sitemap.xml.gz
+Sitemap: https://efemerides20.com/sitemap.xml

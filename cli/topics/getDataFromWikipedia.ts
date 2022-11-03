@@ -67,9 +67,18 @@ const getInfoFromApi = (
 
 	const imageName = page.pageprops.page_image_free || page.pageprops.page_image
 
+	const extract = page.extract.replace(
+		/<p class=\"mw-empty-elt\">(.*?)<\/p>/gs,
+		"",
+	)
+
+	const description = extract
+		.substring(0, extract.indexOf("</p>") + 4)
+		.replace(/<dl>(.*?)<\/dl>/gs, "")
+
 	return getImageFromApi(imageName).then((image) => ({
 		title: page.title,
-		description: page.extract,
+		description,
 		image,
 	}))
 }

@@ -62,3 +62,8 @@ export const findTopTopics = (): Promise<Topics> =>
 	jq
 		.run(`[ .[] ]`, topicsJsonPath, {})
 		.then((output) => JSON.parse(output as string) as Topics)
+
+export const findTopTopic = (slug: string): Promise<Topic> =>
+	jq
+		.run(`.[] | select(.slug == "${slug}")`, topicsJsonPath, {})
+		.then((output) => JSON.parse(output as string) as Topic)

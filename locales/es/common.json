@@ -172,5 +172,14 @@
 		"subtitle": "Estos son los 100 temas más repetidos en las efemérides de la Wikipedia en español",
 		"ranking": "{{position}}º",
 		"countOf": "Total de efemérides: {{count}}"
+	},
+	"topic": {
+		"title": "Efemérides relacionadas con {{name}}",
+		"seoTitle": "Efemérides y acontecimientos relacionados con {{name}}",
+		"breadcrump": "{{name}}",
+		"description": "Todos los acontecimientos, nacimientos y defunciones relacionadas con {{name}} de cualquier año. Puedes ayudar añadiendo acontecimientos en esta base de datos pública de efemérides. Descubre que sucedió este mes, quienes nacieron o murieron y otras curiosidades.",
+		"keywords": "{{name}}, efemérides, acontecimientos, nacimientos",
+		"subtitle": "Lista de efemérides",
+		"goToWikipedia": "Puedes ver la información completa sobre {{name}} <wikilink>en la Wikipedia</wikilink>"
 	}
 }

@@ -1,5 +1,5 @@
 import https from "https"
-import { info } from "../logger"
+import { error, info } from "../logger"
 
 export const getUrlContent = (url: string): Promise<string> =>
 	new Promise<string>((resolve, reject) => {
@@ -18,6 +18,7 @@ export const getUrlContent = (url: string): Promise<string> =>
 				})
 			})
 			.on("error", (err) => {
+				error("Error getting")
 				reject(err)
 			})
 	})

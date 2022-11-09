@@ -11,7 +11,8 @@
 		"lint": "next lint",
 		"serve": "serve out",
 		"dev:cli": "TS_NODE_PROJECT=cli/tsconfig.json ts-node cli/index.ts",
-		"dev:debug": "TS_NODE_PROJECT=cli/tsconfig.json node -r ts-node/register --inspect-brk cli/index.ts"
+		"dev:debug": "TS_NODE_PROJECT=cli/tsconfig.json node -r ts-node/register --inspect-brk cli/index.ts",
+		"deploy": "wrangler pages publish out --project-name efemerides20"
 	},
 	"bin": {
 		"efe20": "./.cli/cli/index.js"
@@ -45,7 +46,8 @@
 		"serve": "^14.0.1",
 		"tailwindcss": "^3.2.1",
 		"ts-node": "^10.9.1",
-		"typescript": "^4.8.4"
+		"typescript": "^4.8.4",
+		"wrangler": "^2.1.15"
 	},
 	"engines": {
 		"node": ">=18.12.0 <19"
@@ -59,5 +61,8 @@
 	},
 	"browser": {
 		"child_process": false
+	},
+	"volta": {
+		"node": "18.12.1"
 	}
 }

@@ -40,10 +40,11 @@ class MyDocument extends Document {
 						addthis_config.data_use_cookies_ondomain = false;
 						addthis_config.data_use_cookies = false;`}</Script>
 					<Script
+						defer
 						strategy="afterInteractive"
 						id="cloudflare-web-analytics"
 						src="https://static.cloudflareinsights.com/beacon.min.js"
-						data-cf-beacon='{"token": "81a81377e90843de9d256dd1ab5dae9a"}'
+						data-cf-beacon='{"token": "c655be2b5dbd461a9626247de958d621"}'
 					/>
 				</body>
 			</Html>

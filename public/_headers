@@ -1,0 +1,6 @@
+/_next/static/*
+  Cache-Control: public, max-age=365000000, immutable
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: default-src 'self' http://*.addthis.com; img-src 'self' https://upload.wikimedia.org data:; connect-src 'self' https://cloudflareinsights.com http://*.addthis.com; script-src 'self' https://static.cloudflareinsights.com http://*.addthis.com https://*.addthisedge.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';

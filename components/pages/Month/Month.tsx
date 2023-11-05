@@ -1,7 +1,6 @@
 import { useTranslation } from "next-i18next"
 import { Fragment } from "react"
 import { getMonthDays, Month as MonthItem } from "../../../utils/date"
-import { AddThis } from "../../shared/AddThis/AddThis"
 import { EphemerideList } from "../../shared/EphemerideList/EphemerideList"
 import { Title } from "../../shared/Title/Title"
 import { MonthPagination } from "./components/MonthPagination/MonthPagination"
@@ -53,7 +52,6 @@ export const Month = ({
 				type="month"
 			/>
 			<MonthPagination days={days} />
-			<AddThis key={`addthis-script-month-${month.name}`} />
 		</Fragment>
 	)
 }

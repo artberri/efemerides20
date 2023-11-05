@@ -1,6 +1,5 @@
 import { Trans, useTranslation } from "next-i18next"
 import { Fragment } from "react"
-import { AddThis } from "../../shared/AddThis/AddThis"
 import { EphemerideList } from "../../shared/EphemerideList/EphemerideList"
 import { Title } from "../../shared/Title/Title"
 
@@ -45,7 +44,6 @@ export const TopicItem = ({
 				ephemerides={ephemerides}
 				type="topic"
 			/>
-			<AddThis key={`addthis-script-topic-${topic.slug}`} />
 		</Fragment>
 	)
 }

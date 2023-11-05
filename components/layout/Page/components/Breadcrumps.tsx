@@ -14,7 +14,7 @@ export const Breadcrumps = ({
 	return (
 		<nav className="bg-gray-100">
 			<Content>
-				<p className="text-gray-600 py-2 text-xs">
+				<p className="py-2 text-xs text-gray-600">
 					{previous.map(([path, title]) => (
 						<Fragment key={path}>
 							<Link href={path} legacyBehavior>

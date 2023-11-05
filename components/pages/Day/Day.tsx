@@ -1,7 +1,6 @@
 import { useTranslation } from "next-i18next"
 import { Fragment } from "react"
 import { Day as DayItem } from "../../../utils/date"
-import { AddThis } from "../../shared/AddThis/AddThis"
 import { EphemerideList } from "../../shared/EphemerideList/EphemerideList"
 import { Title } from "../../shared/Title/Title"
 import { NearbyDays } from "./components/NearbyDays/NearbyDays"
@@ -61,7 +60,6 @@ export const Day = ({
 				type="day"
 			/>
 			<NearbyDays day={day} />
-			<AddThis key={`addthis-script-day-${day.month.name}-${day.number}`} />
 		</Fragment>
 	)
 }

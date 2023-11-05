@@ -16,7 +16,7 @@ export const MonthPagination = ({
 
 	return (
 		<div
-			className={`bg-gray-100 text-gray-800 p-4 text-center lg:p-6 ${className}`}
+			className={`bg-gray-100 p-4 text-center text-gray-800 lg:p-6 ${className}`}
 		>
 			<p className="pb-2">{t("month.chooseDay")}</p>
 

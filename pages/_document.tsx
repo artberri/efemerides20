@@ -34,12 +34,6 @@ class MyDocument extends Document {
 					<Main />
 					<NextScript />
 					<Script
-						id="addthis-config"
-						strategy="beforeInteractive"
-					>{`window.addthis_config = window.addthis_config||{};
-						addthis_config.data_use_cookies_ondomain = false;
-						addthis_config.data_use_cookies = false;`}</Script>
-					<Script
 						defer
 						strategy="afterInteractive"
 						id="cloudflare-web-analytics"

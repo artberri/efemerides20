@@ -9,7 +9,7 @@ export const Footer = (): JSX.Element => {
 	return (
 		<footer className="pb-4 text-center">
 			<Content>
-				<p className="text-gray-600 py-2 text-xs">
+				<p className="py-2 text-xs text-gray-600">
 					<Trans
 						i18nKey="footer.projectof"
 						components={{
@@ -41,7 +41,7 @@ export const Footer = (): JSX.Element => {
 						<FooterLink>{t("cookies.breadcrump")}</FooterLink>
 					</Link>
 				</p>
-				<p className="text-gray-400 py-2 text-xs">
+				<p className="py-2 text-xs text-gray-400">
 					Only free software was used and no kitties were harmed in the making
 					of this website.
 				</p>

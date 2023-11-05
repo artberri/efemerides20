@@ -1,7 +1,6 @@
 import { useTranslation } from "next-i18next"
 import { Fragment } from "react"
 import { useYearOrRange } from "../../../hooks/useYearOrRange"
-import { AddThis } from "../../shared/AddThis/AddThis"
 import { EphemerideList } from "../../shared/EphemerideList/EphemerideList"
 import { Title } from "../../shared/Title/Title"
 
@@ -40,9 +39,6 @@ export const YearOrRange = ({
 				title={t(`${mainKey}.subtitle.deaths`, { ...data })}
 				ephemerides={deaths}
 				type="year"
-			/>
-			<AddThis
-				key={`addthis-script-year-${data.from}-${data.to}-${data.year}`}
 			/>
 		</Fragment>
 	)

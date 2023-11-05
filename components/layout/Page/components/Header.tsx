@@ -18,7 +18,7 @@ export const Header = (): JSX.Element => {
 						</a>
 					</Link>
 				</h1>
-				<div className="text-l pt-2 pb-4 font-heading sm:pt-4 sm:pb-8 sm:text-xl lg:pt-8 lg:pb-16 lg:text-2xl">
+				<div className="text-l pb-4 pt-2 font-heading sm:pb-8 sm:pt-4 sm:text-xl lg:pb-16 lg:pt-8 lg:text-2xl">
 					{t("subtitle")}
 				</div>
 			</Content>

@@ -2,6 +2,7 @@ const port = process.env.PORT || 3000
 
 /** @type {import('next').NextConfig} */
 module.exports = {
+	output: "export",
 	swcMinify: true,
 	reactStrictMode: true,
 	images: {

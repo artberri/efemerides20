@@ -1,5 +1,6 @@
 {
 	"name": "efemerides20",
+	"version": "3.0.0",
 	"license": "AGPL-3.0-or-later",
 	"scripts": {
 		"dev": "next dev",
@@ -25,7 +26,7 @@
 		"@fontsource/rajdhani": "^5.0.8",
 		"@fontsource/roboto": "^5.0.8",
 		"@next/env": "^14.0.1",
-		"commander": "^9.5.0",
+		"commander": "^11.1.0",
 		"html-entities": "^2.4.0",
 		"i18next": "^23.6.0",
 		"next": "14.0.1",

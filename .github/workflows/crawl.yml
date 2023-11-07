@@ -42,14 +42,26 @@ jobs:
         run: pnpm link --global
       - name: Crawl Ephemerides
         run: efe20 crawl > ephemerides.json
+      - name: Crawl Topics
+        run: efe20 topics > topics.json
+      - name: Upload The Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ephemerides
+          path: ephemerides.json
+          retention-days: 7
+      - name: Upload The Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: topics
+          path: topics.json
+          retention-days: 7
       - name: Upload Ephemerides to Gist
         uses: exuanbo/actions-deploy-gist@v1
         with:
           token: ${{ secrets.GIST_TOKEN }}
           gist_id: ${{ secrets.GIST_ID }}
           file_path: ephemerides.json
-      - name: Crawl Topics
-        run: efe20 topics > topics.json
       - name: Upload Topics to Gist
         uses: exuanbo/actions-deploy-gist@v1
         with:

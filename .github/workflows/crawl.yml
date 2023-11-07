@@ -1,6 +1,7 @@
 name: Crawl
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - "crawl*"
@@ -35,6 +36,8 @@ jobs:
             ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --strict-peer-dependencies
+      - name: Build CLI
+        run: pnpm run build:cli
       - name: Install cli
         run: pnpm link --global
       - name: Crawl Ephemerides
